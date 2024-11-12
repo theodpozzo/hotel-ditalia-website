@@ -1,0 +1,47 @@
+Summary of Hotel Management Paper by David Robertson
+
+Key Points:
+- The paper discusses DAEX (Distribution And Exchange) web service 202, a system designed to standardize and automate hotel reservation processes between consolidators and hotels.
+
+- Main Benefits:
+  • Standardizes room descriptions and amenities across different hotels
+  • Price-agnostic system that focuses on room availability and booking
+  • Handles special requests efficiently
+  • Reduces manual intervention in booking process
+  • Supports multiple languages and formats
+
+Important Technical Details:
+1. Translation Process
+- Converts hotel-specific room codes to standardized descriptions
+- Maps international standard descriptions to hotel-specific formats
+- Handles both interface-level and database-level translations
+
+2. Authentication & Security
+- Uses GUID (Globally Unique Identifier) for tracking reservations
+- Implements credential checks and intrusion velocity monitoring
+- Maintains secure communication between consolidators and hotels
+
+3. Booking Rules
+- One room type per reservation
+- One rate code per reservation
+- Supports multiple guests per room based on PMS limits
+- Requires hard date ranges in YYYY-MM-DD format
+- Special requests need pre-agreed codes
+
+4. Special Features
+- Handles cancellations and modifications
+- Manages allocation limits
+- Processes special requests (early check-in, late check-out)
+- Provides status updates through multiple interfaces
+
+Key Innovation:
+The system's price-agnostic nature is particularly noteworthy - it facilitates bookings without needing to know sensitive pricing information, making it more acceptable to hotels who want to keep their pricing strategies confidential.
+
+Implementation Requirements:
+- PMS interface development
+- Standard room type mapping
+- Special request code agreements
+- Credential management
+- Database integration
+
+The paper demonstrates how DAEX web service 202 bridges the gap between different hotel systems while maintaining security and efficiency in the reservation process. 

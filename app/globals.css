@@ -3,20 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent: #F3B72B;
+  --color-primary: #004175;
+  --color-white: #EDF1FF;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -24,4 +16,61 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* Replace the previous calendar styles with these */
+.day-range-start,
+.day-range-end {
+  background-color: #004175 !important;
+  color: white !important;
+  border-radius: 8px !important;
+}
+
+.day-range-middle {
+  background-color: rgba(0, 65, 117, 0.1) !important;
+  color: #000 !important;
+}
+
+/* Style for when hovering over selected days */
+.rdp-day_selected:hover {
+  background-color: #00325A !important;
+  border-radius: 8px !important;
+}
+
+/* Add styles for the first and last day of the range */
+.day-range-start:not(.day-range-end) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.day-range-end:not(.day-range-start) {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+/* Update the SVG styles */
+#BR-RS {
+  fill: #E5F3FF;
+  stroke: #004175;
+  stroke-width: var(--rs-stroke, 1px);
+  transition: stroke-width 1.2s ease;
+}
+
+[id^="BR-"]:not(#BR-RS) {
+  fill: #E5E7EB;
+  stroke: #004175;
+  stroke-width: 0.5;
 }
