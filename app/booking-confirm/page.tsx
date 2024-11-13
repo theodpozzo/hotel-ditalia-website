@@ -17,6 +17,7 @@ type Room = {
   description: string
   price: number
   features: string[]
+  
   maxGuests: number
 }
 
