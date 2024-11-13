@@ -82,14 +82,16 @@ export function BookingSection() {
                 className="rounded-md border"
                 defaultMonth={new Date()}
                 fromDate={new Date()}
-                toDate={addDays(new Date(), 365)}  // Allow booking up to 1 year ahead
+                toDate={addDays(new Date(), 365)}
                 classNames={{
                   day_range_start: "day-range-start",
                   day_range_end: "day-range-end",
                   day_range_middle: "day-range-middle",
+                  day_selected: "",
+                  day_today: "bg-gray-100",
                 }}
                 modifiersClassNames={{
-                  selected: "bg-[#004175] text-white hover:bg-[#004175] hover:text-white",
+                  selected: "",
                   today: "bg-gray-100",
                 }}
               />

@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useRouter } from 'next/navigation'
 
 const languages = [
   { code: 'pt', flag: '/flags/br.svg', label: 'Português' },
@@ -24,6 +25,7 @@ const navigationItems = [
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [language, setLanguage] = useState('pt')
+  const router = useRouter()
 
   const scrollToBooking = () => {
     const bookingSection = document.getElementById('booking-section')
@@ -39,8 +41,8 @@ export function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
-      <div className="max-w-[1920px] mx-auto px-8 md:px-12 py-2 flex justify-between items-center">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white opacity-90 backdrop-blur-sm">
+      <div className="max-w-[1920px] mx-auto px-8 md:px-12 py-2 flex justify-between items-center ">
         <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="group -ml-6">
@@ -54,7 +56,8 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="left" className="w-[300px] sm:w-[400px] p-0">
             {/* Logo section */}
-            <Link href="/" className="block p-8 bg-[#004175] hover:bg-[#00325A] transition-colors">
+            <Link href="/" className="block p-8 bg-[#004175] hover:bg-[#00325A] transition-colors"
+            onClick={() => setIsMenuOpen(false)}>
               <div className="flex flex-col items-center text-white">
                 <div className="text-4xl mb-2">🏨</div>
                 <h1 className="text-2xl font-semibold">Hotel D'Italia</h1>
@@ -112,6 +115,15 @@ export function Header() {
           >
             Reservar Agora
           </Button>
+          
+          <Button 
+            variant="ghost"
+            onClick={() => router.push('/admin')}
+            className="text-[#004175] hover:bg-blue-50"
+          >
+            Admin
+          </Button>
+
           <Select value={language} onValueChange={setLanguage}>
             <SelectTrigger className="w-[64px] px-2 mr-[-1rem] rounded border-[#004175] focus:ring-[#004175]">
               <SelectValue>
@@ -126,7 +138,7 @@ export function Header() {
                 </div>
               </SelectValue>
             </SelectTrigger>
-            <SelectContent className="bg-white/80 rounded border-[#004175]">
+            <SelectContent className="bg-white opacity-90 rounded border-[#004175]">
               {languages.map((lang) => (
                 <SelectItem 
                   key={lang.code} 
