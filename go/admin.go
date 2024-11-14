@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"database/sql"
+	"github.com/go-sql-driver/mysql"
 	"time"
-	// "github.com/go-sql-driver/mysql"
 )
 
 func initialise(name string) {
@@ -33,41 +33,49 @@ func initialise(name string) {
 		panic(err)
 	}
 
-	// Create rooms tabel
-	_, err = tx.Exec(`
-    CREATE TABLE "Rooms" ( 
-      "id" integer not null primary key autoincrement, 
-      "room_number" integer
-    )`,
-	)
-	if err != nil {
-		panic(err)
-	}
-
 	// Create rooms table
 	_, err = tx.Exec(`
-    CREATE TABLE "Guests" ( 
-      "guest_id" integer not null primary key autoincrement, 
-      "fName" VARCHAR(50),
-      "sName" VARCHAR(50),
-      "email" VARCHAR(50),
-      "phone" VARCHAR(15),
-      "cpf" VARCHAR(16),
-      "addy" VARCHAR(40),
-      "city" VARCHAR(50),
-      "state" VARCHAR(2),
-      "cep" VARCHAR(12),
-      "country" VARCHAR(2),
-      "license_plate" VARCHAR(20)
+    CREATE TABLE Rooms ( 
+        room_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        room_number INTEGER NOT NULL UNIQUE
     )`,
 	)
 	if err != nil {
 		panic(err)
 	}
 
+	// Create guests table
+	_, err = tx.Exec(`
+    CREATE TABLE Guests ( 
+        guest_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        fName TEXT NOT NULL,
+        sName TEXT NOT NULL,
+        email TEXT UNIQUE,
+        phone TEXT
+        cpf TEXT,
+        addy TEXT,
+        city TEXT,
+        state TEXT,
+        cep TEXT,
+        country TEXT,
+        license_plate TEXT
+    )`,
+	)
+	if err != nil {
+		panic(err)
+	}
+
+	// Create bookings table with foreign keys
 	_, err = tx.Exec(`
     CREATE TABLE Bookings ( 
-      booking_id integer not null primary key autoincrement,
+        booking_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        FOREIGN KEY (room_id) REFERENCES Rooms(room_id),
+        FOREIGN KEY (guest_id) REFERENCES Guests(guest_id),
+		arrival_date DATE NOT NULL,
+		departure_date DATE NOT NULL,
+		price DECIMAL(10, 2) NOT NULL,
+		special_requests TEXT,
+		source VARCHAR(50) NOT NULL
     )`,
 	)
 	if err != nil {
