@@ -3,16 +3,18 @@ package main
 import (
 	"context"
 	"database/sql"
-	"github.com/go-sql-driver/mysql"
+	_ "github.com/lib/pq"
 	"time"
 )
 
 func initialise(name string) {
-	db, err := sql.Open("mysql", "user:password@/dbname")
+	// PostgreSQL connection string
+	db, err := sql.Open("postgres", "host=localhost port=5432 user=postgres password=your_password sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
-	// See "Important settings" section.
+	defer db.Close()
+
 	db.SetConnMaxLifetime(time.Minute * 3)
 	db.SetMaxOpenConns(10)
 	db.SetMaxIdleConns(10)
@@ -23,61 +25,60 @@ func initialise(name string) {
 		panic(err)
 	}
 
+	// Create database
 	_, err = tx.Exec("CREATE DATABASE " + name)
 	if err != nil {
 		panic(err)
 	}
 
-	_, err = tx.Exec("USE " + name)
+	// Reconnect to the new database
+	db, err = sql.Open("postgres", "host=localhost port=5432 user=postgres password=your_password dbname="+name+" sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
 
 	// Create rooms table
 	_, err = tx.Exec(`
-    CREATE TABLE Rooms ( 
-        room_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    CREATE TABLE rooms ( 
+        room_id SERIAL PRIMARY KEY,
         room_number INTEGER NOT NULL UNIQUE
-    )`,
-	)
+    )`)
 	if err != nil {
 		panic(err)
 	}
 
 	// Create guests table
 	_, err = tx.Exec(`
-    CREATE TABLE Guests ( 
-        guest_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        fName TEXT NOT NULL,
-        sName TEXT NOT NULL,
-        email TEXT UNIQUE,
-        phone TEXT
-        cpf TEXT,
-        addy TEXT,
-        city TEXT,
-        state TEXT,
-        cep TEXT,
-        country TEXT,
-        license_plate TEXT
-    )`,
-	)
+    CREATE TABLE guests ( 
+        guest_id SERIAL PRIMARY KEY,
+        fname VARCHAR(50) NOT NULL,
+        sname VARCHAR(50) NOT NULL,
+        email VARCHAR(50) UNIQUE,
+        phone VARCHAR(15),
+        cpf VARCHAR(16),
+        addy VARCHAR(40),
+        city VARCHAR(50),
+        state VARCHAR(2),
+        cep VARCHAR(12),
+        country VARCHAR(2),
+        license_plate VARCHAR(20)
+    )`)
 	if err != nil {
 		panic(err)
 	}
 
 	// Create bookings table with foreign keys
 	_, err = tx.Exec(`
-    CREATE TABLE Bookings ( 
-        booking_id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        FOREIGN KEY (room_id) REFERENCES Rooms(room_id),
-        FOREIGN KEY (guest_id) REFERENCES Guests(guest_id),
-		arrival_date DATE NOT NULL,
-		departure_date DATE NOT NULL,
-		price DECIMAL(10, 2) NOT NULL,
-		special_requests TEXT,
-		source VARCHAR(50) NOT NULL
-    )`,
-	)
+    CREATE TABLE bookings ( 
+        booking_id SERIAL PRIMARY KEY,
+        room_id INTEGER NOT NULL REFERENCES rooms(room_id),
+        guest_id INTEGER NOT NULL REFERENCES guests(guest_id),
+        arrival_date TIMESTAMP NOT NULL,
+        departure_date TIMESTAMP NOT NULL,
+        price DECIMAL(10, 2) NOT NULL,
+        special_requests TEXT,
+        source VARCHAR(50) NOT NULL
+    )`)
 	if err != nil {
 		panic(err)
 	}
