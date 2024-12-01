@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/ui/node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -11,6 +12,7 @@
 
 # next.js
 /.next/
+/ui/.next/
 /out/
 
 # production
