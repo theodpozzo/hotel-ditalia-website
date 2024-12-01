@@ -30,7 +30,7 @@ export function Header() {
   const scrollToBooking = () => {
     const bookingSection = document.getElementById('booking-section')
     if (bookingSection) {
-      const offset = 100
+      const offset = 0
       const elementPosition = bookingSection.getBoundingClientRect().top
       const offsetPosition = elementPosition + window.pageYOffset - offset
       window.scrollTo({

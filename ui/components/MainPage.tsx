@@ -2,6 +2,7 @@
 
 // Import all the main section components that make up the homepage
 import { HeroSection } from './sections/HeroSection'
+import { MapSection } from './sections/MapSection'
 import { BookingSection } from './sections/BookingSection'
 import { InformationSection } from './sections/InformationSection'
 import { NewsletterSection } from './sections/NewsletterSection'
@@ -12,7 +13,10 @@ export function MainPage() {
     <>
       {/* Hero Section: Full-screen landing section with video background */}
       <HeroSection />
-      
+
+      {/* Map Section: Where the user can scroll down to zoom into where the hotel is */}
+      <MapSection />
+
       {/* Booking Section: Where users can select dates and room preferences */}
       <BookingSection />
       

@@ -1,0 +1,127 @@
+        {/* Hotel Information */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+          <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+            <h2 className="text-2xl font-bold mb-6 text-[#004175] flex items-center gap-3">
+              <span className="p-3 bg-blue-50 rounded-lg">🚗</span>
+              Como Chegar
+            </h2>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <MapPin className="text-[#004175] mt-1" />
+                <div>
+                  <p className="font-semibold text-lg mb-2">Endereço</p>
+                  <p className="text-gray-600">Av. Assis Brasil, 12</p>
+                  <p className="text-gray-600">Arroio do Sal - RS</p>
+                  <p className="text-gray-600">CEP: 95585-000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+            <h2 className="text-2xl font-bold mb-6 text-[#004175] flex items-center gap-3">
+              <span className="p-3 bg-blue-50 rounded-lg">⭐</span>
+              Pontos de Referência
+            </h2>
+            <ul className="space-y-4 text-gray-600">
+              {[
+                { icon: '🏖️', text: 'Ao lado da Praia' },
+                { icon: '🏙️', text: '2 min do Centro' },
+                { icon: '🌅', text: '30 min de Torres' },
+                { icon: '🚗', text: '2h de Porto Alegre' }
+              ].map((item, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <span className="text-xl">{item.icon}</span>
+                  {item.text}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MapPin } from 'lucide-react';
+
+// Location coordinates
+const HOTEL_COORDS = {
+  lat: -29.550914788484867,
+  lng: -49.8857531028526
+};
+
+const MapSection = () => {
+  const [activeLocation, setActiveLocation] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const mapSection = document.querySelector('.map-section');
+      const mapSectionTop = mapSection.offsetTop;
+      const mapSectionHeight = mapSection.offsetHeight;
+
+      let newActiveLocation = 0;
+      for (let i = locationData.length - 1; i >= 0; i--) {
+        if (scrollTop >= mapSectionTop + (i / locationData.length) * mapSectionHeight) {
+          newActiveLocation = i;
+          break;
+        }
+      }
+
+      setActiveLocation(newActiveLocation);
+
+      // Calculate the zoom level based on the active location
+      const zoomFactor = 1 + (newActiveLocation / (locationData.length - 1)) * 2;
+      setZoomLevel(zoomFactor);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div className="map-section relative h-screen overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div ref={mapRef} className="w-full h-full">
+          <object
+            data="/map-svg/brazil.svg"
+            type="image/svg+xml"
+            className="w-full h-full object-contain drop-shadow-xl"
+            style={{
+              transform: `scale(${zoomLevel})`,
+              transformOrigin: `${HOTEL_COORDS.lng * 100}% ${HOTEL_COORDS.lat * 100}%`
+            }}
+          />
+        </div>
+      </div>
+
+      <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-between px-8 py-12 pointer-events-none">
+        <AnimatePresence mode="wait">
+          {locationData.map((location, index) => (
+            <motion.div
+              key={location.name}
+              className={`flex items-center gap-4 py-4 px-6 rounded-xl bg-white/80 shadow-lg ${
+                index === activeLocation ? 'scale-105 z-10' : 'opacity-60'
+              }`}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: index === activeLocation ? 1 : 0.6,
+                scale: index === activeLocation ? 1 : 0.9
+              }}
+              transition={{ duration: 0.3 }}
+              style={{
+                transform: `translateY(${(index - activeLocation) * 80}px)`
+              }}
+            >
+              <div className="w-4 h-4 bg-[#004175] rounded-full ring-2 ring-[#004175]/50" />
+              <span className="font-medium text-[#004175]">{location.name}</span>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};
+
+export default MapSection;

@@ -34,6 +34,20 @@ export function HeroSection() {
     return '❓' // Unknown
   }
 
+  const scrollToBooking = () => {
+    const bookingSection = document.getElementById('booking-section')
+    if (bookingSection) {
+      const offset = 0
+      const elementPosition = bookingSection.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - offset
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      })
+    }
+  }
+
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Video Background */}
@@ -93,7 +107,10 @@ export function HeroSection() {
       </div>
 
       {/* Centered Scroll Arrow with Surface Bounce */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white flex flex-col items-center">
+      <div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white flex flex-col items-center"
+        onClick={scrollToBooking}
+      >
         <svg 
           className="w-6 h-6 animate-bounceOnSurface"
           fill="none" 
