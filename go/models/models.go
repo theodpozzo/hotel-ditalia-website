@@ -2,13 +2,15 @@ package models
 
 import "time"
 
+type Id int64
+
 type Room struct {
-	RoomID     int64 `json:"room_id" db:"room_id"`
+	RoomID     Id    `json:"room_id" db:"room_id"`
 	RoomNumber int64 `json:"room_number" db:"room_number"`
 }
 
 type Guest struct {
-	GuestID      int64  `json:"guest_id" db:"guest_id"`
+	GuestID      Id     `json:"guest_id" db:"guest_id"`
 	FirstName    string `json:"fname" db:"fname"`
 	LastName     string `json:"sname" db:"sname"`
 	Email        string `json:"email" db:"email"`
@@ -23,9 +25,9 @@ type Guest struct {
 }
 
 type Booking struct {
-	BookingID       int64     `json:"booking_id" db:"booking_id"`
-	RoomID          int64     `json:"room_id" db:"room_id"`
-	GuestID         int64     `json:"guest_id" db:"guest_id"`
+	BookingID       Id        `json:"booking_id" db:"booking_id"`
+	RoomID          Id        `json:"room_id" db:"room_id"`
+	GuestID         Id        `json:"guest_id" db:"guest_id"`
 	ArrivalDate     time.Time `json:"arrival_date" db:"arrival_date"`
 	DepartureDate   time.Time `json:"departure_date" db:"departure_date"`
 	Price           float64   `json:"price" db:"price"`

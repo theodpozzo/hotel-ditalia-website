@@ -1,22 +1,23 @@
 package main
 
 import (
-	"fmt"
-
+	"context"
 	"hotel-ditalia-website/api"
 	"hotel-ditalia-website/db"
-	"hotel-ditalia-website/models"
 )
 
 func main() {
-	api.New()
-	db := db.New_DB()
+	ctx := context.Background()
+	db, err := db.New_DB()
+	if err != nil {
+		panic(err)
+	}
+	server := api.New("6969", ctx, db)
+	server.Start()
 
-	fmt.Println(db.Delete_room(1))
-
-	fmt.Println(db.Insert_room(models.Room{RoomID: 1, RoomNumber: 1}))
-
-	fmt.Println(db.Get_room(1))
-
-	fmt.Println(db.Delete_room(1))
+	for {
+		select {
+		case <-ctx.Done():
+		}
+	}
 }
