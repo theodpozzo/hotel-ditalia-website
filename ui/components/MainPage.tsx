@@ -18,7 +18,7 @@ export function MainPage() {
       <MapSection />
 
       {/* Booking Section: Where users can select dates and room preferences */}
-      <BookingSection />
+      {/* <BookingSection /> */}
       
       {/* Information Section: Hotel details and room descriptions */}
       <InformationSection />

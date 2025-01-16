@@ -118,12 +118,12 @@ export function Header() {
         </Link>
 
         <div className="flex items-center space-x-4">
-          <Button 
+          {/* <Button 
             onClick={scrollToBooking}
             className="bg-[#004175] hover:bg-[#00325A] rounded text-white transition-colors"
           >
             Reservar Agora
-          </Button>
+          </Button> */}
 
           <Select value={language} onValueChange={setLanguage}>
             <SelectTrigger className="w-[64px] px-2 mr-[-1rem] rounded border-[#004175] focus:ring-[#004175]">
