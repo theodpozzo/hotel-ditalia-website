@@ -21,6 +21,9 @@ export function HeroSection() {
     }
 
     fetchWeather()
+
+    const interval = setInterval(fetchWeather, 600000) // Update every 10 minutes
+    return () => clearInterval(interval)
   }, [])
 
   const getWeatherEmoji = (weatherId: number) => {

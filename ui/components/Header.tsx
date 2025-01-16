@@ -105,7 +105,16 @@ export function Header() {
         </Sheet>
 
         <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 text-3xl">
-          🏨
+            <div className="relative w-[100px] h-[100px] mt-10">
+            <div className="absolute inset-0 rounded-full border-20 border-white bg-white"></div>
+            <Image 
+              src="/logo/Hotel D'Italia Only Logo.jpg" 
+              alt='logo' 
+              width={90} 
+              height={90}
+              className="relative inset-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
+            />
+            </div>
         </Link>
 
         <div className="flex items-center space-x-4">
@@ -114,14 +123,6 @@ export function Header() {
             className="bg-[#004175] hover:bg-[#00325A] rounded text-white transition-colors"
           >
             Reservar Agora
-          </Button>
-          
-          <Button 
-            variant="ghost"
-            onClick={() => router.push('/admin')}
-            className="text-[#004175] hover:bg-blue-50"
-          >
-            Admin
           </Button>
 
           <Select value={language} onValueChange={setLanguage}>
