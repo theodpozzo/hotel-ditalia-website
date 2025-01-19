@@ -15,7 +15,7 @@ export function MainPage() {
       <HeroSection />
 
       {/* Map Section: Where the user can scroll down to zoom into where the hotel is */}
-      <MapSection />
+      {/* <MapSection /> */}
 
       {/* Booking Section: Where users can select dates and room preferences */}
       {/* <BookingSection /> */}

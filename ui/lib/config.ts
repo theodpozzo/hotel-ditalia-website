@@ -10,26 +10,26 @@ export const FEATURES = {
 } as const
 
 export const HOTEL_INFO = {
-  NAME: "Hotel D'Italia",
-  LOCATION: {
-    ADDRESS: "Av. Assis Brasil, 12",
-    CITY: "Arroio do Sal",
-    STATE: "RS",
-    ZIP: "95585-000",
-    COUNTRY: "Brasil",
-    COORDS: {
+  name: "Hotel D'Itália",
+  location: {
+    address: "Av. Assis Brasil, 12",
+    city: "Arroio do Sal",
+    state: "RS",
+    cep: "95585-000",
+    country: "Brasil",
+    coords: {
       LAT: -29.550914788484867,
       LNG: -49.8857531028526
     }
   },
   CONTACT: {
-    PHONE: "+55 51 9XXXX-XXXX",
-    WHATSAPP: "+55 51 9XXXX-XXXX",
-    EMAIL: "contato@hotelditalia.com",
+    PHONE: "+55 51 9684-4479",
+    WHATSAPP: "+55 51 9684-4479",
+    EMAIL: "contato@hotelditalia.com.br",
     SOCIAL: {
       FACEBOOK: "https://facebook.com/hotelditalia",
-      INSTAGRAM: "https://instagram.com/hotelditalia",
-      WHATSAPP: "https://wa.me/5551912345678"
+      INSTAGRAM: "https://instagram.com/ditaliahotel",
+      WHATSAPP: "https://wa.me/555196844479"
     }
   }
 } as const

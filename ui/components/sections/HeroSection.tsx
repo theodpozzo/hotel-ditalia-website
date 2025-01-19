@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useLanguageContext } from '@/context/LanguageContext'
 
 export function HeroSection() {
+  const { t } = useLanguageContext()
   const [weather, setWeather] = useState({ temp: '', icon: '☀️' })
 
   useEffect(() => {
@@ -21,9 +23,6 @@ export function HeroSection() {
     }
 
     fetchWeather()
-
-    const interval = setInterval(fetchWeather, 600000) // Update every 10 minutes
-    return () => clearInterval(interval)
   }, [])
 
   const getWeatherEmoji = (weatherId: number) => {
@@ -36,20 +35,6 @@ export function HeroSection() {
     if (weatherId > 800) return '☁️' // Clouds
     return '❓' // Unknown
   }
-
-  const scrollToBooking = () => {
-    const bookingSection = document.getElementById('booking-section')
-    if (bookingSection) {
-      const offset = 0
-      const elementPosition = bookingSection.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - offset
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      })
-    }
-  }
-
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -93,27 +78,20 @@ export function HeroSection() {
         <h1 className="font-josefin-sans font-bold text-5xl md:text-7xl mb-2 relative">
           <span className="block relative">
             <span className="relative inline-block">
-              Hotel 
-              <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-gold-light transform scale-x-0 transition-transform duration-300 ease-out animate-expandLine"></span>
-            </span>{' '}
-            <span className="relative inline-block text-gold-light">
-              D&apos;Italia
+              {t('hotel.name')}
               <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-white transform scale-x-0 transition-transform duration-300 ease-out animate-expandLine delay-150"></span>
             </span>
           </span>
         </h1>
         <p className="font-josefin-slab font-semibold text-xl md:text-2xl max-w-2xl opacity-0 animate-fadeInUp mt-1">
           <span className="bg-gradient-to-r from-transparent via-gold/10 to-transparent px-6 py-2 backdrop-blur-sm rounded-lg inline-block">
-            Arroio do Sal - RS - Brasil
+            {t('hotel.town')}
           </span>
         </p>
       </div>
 
       {/* Centered Scroll Arrow with Surface Bounce */}
-      <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white flex flex-col items-center"
-        onClick={scrollToBooking}
-      >
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 text-white flex flex-col items-center">
         <svg 
           className="w-6 h-6 animate-bounceOnSurface"
           fill="none" 

@@ -3,14 +3,16 @@
 import React, { useState } from 'react'
 import { MapPin } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-
-// Location coordinates for the hotel
-const HOTEL_COORDS = {
-  lat: -29.550914788484867,
-  lng: -49.8857531028526 
-}
+import { useLanguageContext } from '@/context/LanguageContext';
 
 export default function LocationPage() {
+  const { t } = useLanguageContext();
+
+  // Location coordinates for the hotel
+  const HOTEL_COORDS = {
+    lat: t('hotel.location.lat'), // -29.550450
+    lng: t('hotel.location.lng'), // -49.885753 
+  }
   const [activeMap, setActiveMap] = useState<'brazil' | 'rs' | 'litoral' | 'city'>('brazil')
   const [showStreetMap, setShowStreetMap] = useState(false)
 
@@ -27,19 +29,18 @@ export default function LocationPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-28">
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-2 text-[#004175] text-center">Nossa Localização</h1>
-        <p className="text-gray-600 text-center mb-12">Descubra onde nos encontrar no litoral gaúcho</p>
+        <h1 className="text-4xl font-bold mb-2 text-[#004175] text-center">{t('location.title')}</h1>
+        <p className="text-gray-600 text-center mb-12">{t('location.description')}</p>
         
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {/* Navigation Panel */}
+            {/* Map Panel */}
             <div className="bg-gray-50 p-8 border-r border-gray-100">
               <div className="space-y-3">
                 {[
-                  { id: 'brazil', title: 'Brasil', subtitle: 'Litoral Sul', icon: '🗺️' },
-                  { id: 'rs', title: 'Rio Grande do Sul', subtitle: 'Litoral Norte', icon: '📍' },
-                  { id: 'litoral', title: 'Litoral', subtitle: 'Arroio do Sal', icon: '🌊' },
-                  { id: 'city', title: 'Centro', subtitle: 'Hotel D\'Italia', icon: '🏨' }
+                  { id: 'brazil', title: t('map.timeline.brazil'), icon: '🗺️' },
+                  { id: 'rs', title: t('map.timeline.rs'), icon: '📍' },
+                  { id: 'litoral', title: t('map.timeline.litoral'), icon: '🌊' },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -56,7 +57,6 @@ export default function LocationPage() {
                       <div className="mt-1">{item.icon}</div>
                       <div>
                         <h3 className="font-bold text-lg mb-1">{item.title}</h3>
-                        <p className="text-sm opacity-80">{item.subtitle}</p>
                       </div>
                     </div>
                   </button>
@@ -202,16 +202,13 @@ export default function LocationPage() {
           <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <h2 className="text-2xl font-bold mb-6 text-[#004175] flex items-center gap-3">
               <span className="p-3 bg-blue-50 rounded-lg">🚗</span>
-              Como Chegar
+              {t('location.hotel.title')}
             </h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <MapPin className="text-[#004175] mt-1" />
                 <div>
-                  <p className="font-semibold text-lg mb-2">Endereço</p>
-                  <p className="text-gray-600">Av. Assis Brasil, 12</p>
-                  <p className="text-gray-600">Arroio do Sal - RS</p>
-                  <p className="text-gray-600">CEP: 95585-000</p>
+                  {t('location.hotel.address')}
                 </div>
               </div>
             </div>
@@ -220,14 +217,14 @@ export default function LocationPage() {
           <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <h2 className="text-2xl font-bold mb-6 text-[#004175] flex items-center gap-3">
               <span className="p-3 bg-blue-50 rounded-lg">⭐</span>
-              Pontos de Referência
+              {t('location.hotel.reference')}
             </h2>
             <ul className="space-y-4 text-gray-600">
               {[
-                { icon: '🏖️', text: 'Ao lado da Praia' },
-                { icon: '🏙️', text: '2 min do Centro' },
-                { icon: '🌅', text: '30 min de Torres' },
-                { icon: '🚗', text: '2h de Porto Alegre' }
+                { icon: '🏖️', text: t('location.hotel.beach') },
+                { icon: '🏙️', text: t('location.hotel.centre') },
+                { icon: '🌅', text: t('location.hotel.torres') },
+                { icon: '🚗', text: t('location.hotel.poa') }
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <span className="text-xl">{item.icon}</span>

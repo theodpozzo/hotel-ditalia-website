@@ -2,14 +2,18 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
+import { useLanguageContext } from '@/context/LanguageContext';
+import { config } from 'process';
 
 const Timeline = ({ scrollYProgress }: { scrollYProgress: any }) => {
+    const { t } = useLanguageContext();
     const currentStep = useTransform(scrollYProgress, [0, 0.5, 0.82, 1], [0, 1.1, 1.9, 3]);
 
+
     const items = [
-        { id: 'brazil', title: 'Brasil' },
-        { id: 'rs', title: 'Rio Grande do Sul' },
-        { id: 'litoral', title: 'Litoral' },
+        t('map.timeline.brazil'),
+        t('map.timeline.rs'),
+        t('map.timeline.litoral'),
     ];
 
     const circleSizes = items.map((item, index) =>
@@ -36,7 +40,7 @@ const Timeline = ({ scrollYProgress }: { scrollYProgress: any }) => {
             />
             <div className="space-y-[calc(80vh/3)] relative py-[10vh]">
                 {items.map((item, index) => (
-                    <div key={item.id} className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
+                    <div key={item} className={`flex items-center ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
                         <motion.div
                             className="absolute left-[40%] rounded-full border-2 border-blue-500 transition-all duration-300"
                             style={{
@@ -52,7 +56,7 @@ const Timeline = ({ scrollYProgress }: { scrollYProgress: any }) => {
                                     fontSize: fontSizes[index],
                                 }}
                             >
-                                {item.title}
+                                {item}
                             </motion.h3>
                         </div>
                     </div>
@@ -60,11 +64,6 @@ const Timeline = ({ scrollYProgress }: { scrollYProgress: any }) => {
             </div>
         </div>
     );
-};
-
-const HOTEL_COORDS = {
-    lat: -29.550914788484867,
-    lng: -49.8857531028526
 };
 
 export function MapSection() {

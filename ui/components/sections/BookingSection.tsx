@@ -8,8 +8,13 @@ import { Button } from "@/components/ui/button"
 import { DateRange } from "react-day-picker"
 import { useRouter } from 'next/navigation'
 import { addDays } from 'date-fns'
+import { useTranslation } from '@/hooks/useTranslation';
+import { useLanguageContext } from '@/context/LanguageContext';
 
 export function BookingSection() {
+  const { t } = useTranslation();
+  const { setLanguage } = useLanguageContext();
+
   // Initialize router for navigation
   const router = useRouter()
 
@@ -66,7 +71,7 @@ export function BookingSection() {
 
       {/* Main content container */}
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-4xl font-bold mb-8 text-center text-blue-800">Faça sua Reserva</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center text-blue-800">{t('booking.title')}</h2>
         
         {/* Booking form card */}
         <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-8">

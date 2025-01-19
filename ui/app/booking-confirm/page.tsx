@@ -9,6 +9,7 @@ import { PlaceholderImage } from '@/components/ui/placeholder-image'
 import { RoomComparison } from '@/components/RoomComparison'
 import { Button } from '@/components/ui/button'
 import { FEATURES } from '@/lib/config'
+import { useLanguageContext } from '@/context/LanguageContext';
 
 // Type definition for room data structure
 type Room = {
@@ -21,6 +22,8 @@ type Room = {
 }
 
 export default function BookingConfirmPage() {
+  const { t } = useLanguageContext();
+  
   const [selectedRooms, setSelectedRooms] = useState<string[]>([])
   const [showComparison, setShowComparison] = useState(false)
 
@@ -59,24 +62,24 @@ export default function BookingConfirmPage() {
           <div className="flex flex-wrap items-center gap-6">
             {/* Check-in date display */}
             <div>
-              <p className="text-sm text-gray-600">Check-in</p>
+              <p className="text-sm text-gray-600">{t('booking_confirm.checkin')}</p>
               <p className="font-semibold">{formatDate(checkIn)}</p>
             </div>
             <div className="h-8 w-px bg-gray-300"></div>
             
             {/* Check-out date display */}
             <div>
-              <p className="text-sm text-gray-600">Check-out</p>
+              <p className="text-sm text-gray-600">{t('booking_confirm.checkin')}</p>
               <p className="font-semibold">{formatDate(checkOut)}</p>
             </div>
             <div className="h-8 w-px bg-gray-300"></div>
             
             {/* Guest count display */}
             <div>
-              <p className="text-sm text-gray-600">Hóspedes</p>
+              <p className="text-sm text-gray-600">{t('guestcount.guests')}</p>
               <p className="font-semibold">
-                {adults} {parseInt(adults!) > 1 ? 'adultos' : 'adulto'}
-                {children && parseInt(children) > 0 ? `, ${children} ${parseInt(children) > 1 ? 'crian��as' : 'criança'}` : ''}
+                {adults} {parseInt(adults!) > 1 ? `{t('booking_confirm.adults')}` : `{t('booking_confirm.adult')}`}
+                {children && parseInt(children) > 0 ? `, ${children} ${parseInt(children) > 1 ? `{t('booking_confirm.children')}` : `{t('booking_confirm.child')}`}` : ''}
               </p>
             </div>
             
@@ -85,7 +88,7 @@ export default function BookingConfirmPage() {
               onClick={() => router.back()}
               className="ml-auto text-sm font-semibold text-[#004175] hover:underline"
             >
-              Modificar busca
+              {t('booking_confirm.modify_search')}
             </button>
           </div>
         </div>

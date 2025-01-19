@@ -117,7 +117,7 @@ Menos de 3 dias: sem reembolso
 
 3. **Accessibility Improvements**
    - ARIA labels
-   - Keyboard navigation
+   - Keyboard
    - Color contrast checking
 
 4. **Mobile Responsiveness**

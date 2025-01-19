@@ -5,13 +5,15 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { ChevronLeft, ChevronRight, X } from "lucide-react"
 import { PlaceholderImage } from '@/components/ui/placeholder-image'
+import { useLanguageContext } from '@/context/LanguageContext';
 
 export default function GalleryPage() {
+  const { t } = useLanguageContext()
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   const images = Array(12).fill(null).map((_, index) => ({
     id: index,
-    alt: `Gallery image ${index + 1}`
+    alt: `${t('gallery.img')} ${index + 1}`
   }))
 
   const handlePrevious = (e: React.MouseEvent<HTMLButtonElement>) => {
