@@ -3,6 +3,7 @@ import "./globals.css";
 import { Josefin_Sans, Josefin_Slab } from 'next/font/google'
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { LanguageProvider } from '@/context/LanguageContext';
 
 // Configure fonts for the website
 const josefinSans = Josefin_Sans({
@@ -31,18 +32,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // Check if we're on the admin page by looking at the pathname
-  const isAdminPage = children?.toString().includes('/admin')
-
   return (
     <html lang="pt" className={`${josefinSans.variable} ${josefinSlab.variable}`}>
       <body>
         <div className="min-h-screen flex flex-col">
-          {!isAdminPage && <Header />}
           <main className="flex-grow">
-            {children}
+            <LanguageProvider>
+              <Header />
+              {children}
+              <Footer />
+            </LanguageProvider>
           </main>
-          {!isAdminPage && <Footer />}
         </div>
       </body>
     </html>

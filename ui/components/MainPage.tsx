@@ -11,20 +11,19 @@ import { NewsletterSection } from './sections/NewsletterSection'
 export function MainPage() {
   return (
     <>
+
       {/* Hero Section: Full-screen landing section with video background */}
       <HeroSection />
 
       {/* Map Section: Where the user can scroll down to zoom into where the hotel is */}
-      <MapSection />
+      {/* <MapSection /> */}
 
       {/* Booking Section: Where users can select dates and room preferences */}
-      <BookingSection />
-      
+      {/* <BookingSection /> */}
+
       {/* Information Section: Hotel details and room descriptions */}
       <InformationSection />
-      
-      {/* Newsletter Section: Email signup for updates */}
-      <NewsletterSection />
+
     </>
   )
 } 

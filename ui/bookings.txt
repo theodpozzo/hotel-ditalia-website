@@ -1,0 +1,5 @@
+This text file will have all the editions that I have commented out to make sure that the code is working fine.
+I will comment these out and they will be uncommented when I have a working API.
+
+MainPage.tsx  Line 21           (BookingSection)
+Header.tsx    Lines 121 - 126   (Reservar Agora button)

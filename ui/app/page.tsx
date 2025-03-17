@@ -3,10 +3,11 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { MainPage } from "@/components/MainPage"
+import { LanguageProvider } from '@/context/LanguageContext'
 
 export default function Home() {
   const searchParams = useSearchParams()
-  
+
   useEffect(() => {
     if (searchParams.get('scroll') === 'booking') {
       const bookingSection = document.getElementById('booking-section')
@@ -22,5 +23,11 @@ export default function Home() {
     }
   }, [searchParams])
 
-  return <MainPage />
+  return (
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
+      <LanguageProvider>
+        <MainPage />
+      </LanguageProvider>
+    </section>
+  );
 }

@@ -3,17 +3,22 @@
 import React from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { StarIcon } from "lucide-react"
+import { Header } from '@radix-ui/react-accordion'
+import { Button } from '@/components/ui/button'
+import { useLanguageContext } from '@/context/LanguageContext';
+import { Footer } from '@/components/Footer'
 
 export default function ReviewsPage() {
+  const { t } = useLanguageContext()
   return (
     <div className="min-h-screen flex flex-col bg-blue-50">
       <Header />
       <main className="flex-grow pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-4xl font-bold text-blue-800">Avaliações</h1>
+            <h1 className="text-4xl font-bold text-blue-800">{t('reviews.title')}</h1>
             <Button className="bg-gold text-white hover:bg-gold-600">
-              Deixe sua Avaliação
+              {t('reviews.leaveReview')}
             </Button>
           </div>
           
@@ -26,7 +31,7 @@ export default function ReviewsPage() {
                     <div className="w-12 h-12 rounded-full bg-blue-200"></div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="font-bold text-blue-800">Guest Name</h3>
+                    <h3 className="font-bold text-blue-800">{t('reviews.guestName')}</h3>
                     <div className="flex text-gold">
                       {Array(5).fill(null).map((_, i) => (
                         <StarIcon key={i} className="w-4 h-4 fill-current" />
@@ -34,11 +39,11 @@ export default function ReviewsPage() {
                     </div>
                   </div>
                   <Button variant="ghost" className="ml-auto">
-                    Translate
+                    {t('reviews.translate')}
                   </Button>
                 </div>
                 <p className="text-blue-600">
-                  Sample review text. Replace with actual review content.
+                  {t('reviews.sampleText')}
                 </p>
               </Card>
             ))}
