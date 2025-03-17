@@ -6,7 +6,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useLanguageContext } from '@/context/LanguageContext';
 
 export default function LocationPage() {
-  const { t } = useLanguageContext();
+  const { language, setLanguage, t, tArray} = useLanguageContext();
+  const locations = tArray('location.locations_nearby') as unknown as { name: string; icon: string }[]
 
   // Location coordinates for the hotel
   const HOTEL_COORDS = {
@@ -29,8 +30,8 @@ export default function LocationPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white pt-28">
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold mb-2 text-[#004175] text-center">{t('location.title')}</h1>
-        <p className="text-gray-600 text-center mb-12">{t('location.description')}</p>
+        <h1 className="text-4xl font-bold mb-2 text-[#004175] text-center">{t('location.title') as string}</h1>
+        <p className="text-gray-600 text-center mb-12">{t('location.description') as string}</p>
         
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
@@ -38,9 +39,9 @@ export default function LocationPage() {
             <div className="bg-gray-50 p-8 border-r border-gray-100">
               <div className="space-y-3">
                 {[
-                  { id: 'brazil', title: t('map.timeline.brazil'), icon: '🗺️' },
-                  { id: 'rs', title: t('map.timeline.rs'), icon: '📍' },
-                  { id: 'litoral', title: t('map.timeline.litoral'), icon: '🌊' },
+                  { id: 'brazil', title: t('location.map_section.timeline.big_picture'), icon: '🗺️' },
+                  { id: 'rs', title: t('location.map_section.timeline.normal'), icon: '📍' },
+                  { id: 'litoral', title: t('location.map_section.timeline.zoomed_in'), icon: '🌊' },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -56,7 +57,7 @@ export default function LocationPage() {
                     }`}>
                       <div className="mt-1">{item.icon}</div>
                       <div>
-                        <h3 className="font-bold text-lg mb-1">{item.title}</h3>
+                        <h3 className="font-bold text-lg mb-1">{item.title as string}</h3>
                       </div>
                     </div>
                   </button>
@@ -202,13 +203,13 @@ export default function LocationPage() {
           <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <h2 className="text-2xl font-bold mb-6 text-[#004175] flex items-center gap-3">
               <span className="p-3 bg-blue-50 rounded-lg">🚗</span>
-              {t('location.hotel.title')}
+              {t('location.hotel.title') as string}
             </h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <MapPin className="text-[#004175] mt-1" />
                 <div>
-                  {t('location.hotel.address')}
+                  {t('location.hotel.address') as string}
                 </div>
               </div>
             </div>
@@ -217,18 +218,13 @@ export default function LocationPage() {
           <div className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
             <h2 className="text-2xl font-bold mb-6 text-[#004175] flex items-center gap-3">
               <span className="p-3 bg-blue-50 rounded-lg">⭐</span>
-              {t('location.hotel.reference')}
+              {t('location.hotel.reference') as string}
             </h2>
             <ul className="space-y-4 text-gray-600">
-              {[
-                { icon: '🏖️', text: t('location.hotel.beach') },
-                { icon: '🏙️', text: t('location.hotel.centre') },
-                { icon: '🌅', text: t('location.hotel.torres') },
-                { icon: '🚗', text: t('location.hotel.poa') }
-              ].map((item, index) => (
+              {locations.map((item, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <span className="text-xl">{item.icon}</span>
-                  {item.text}
+                  <span className="text-xl">{item.name}</span>
                 </li>
               ))}
             </ul>

@@ -2,23 +2,28 @@ import { TranslationsType } from "./index";
 
 export const en: TranslationsType['en'] = {
   hotel: {
-    name: "Hotel D'Italia",
-    description: "Your beachfront refuge in Arroio do Sal",
+    name: "Hotel D'Itália",
+    description: "Your seaside retreat in Arroio do Sal",
     address: "Av. Assis Brasil, 12",
-    town: "Arroio do Sal, RS",
-    phone: "+55 51 96844479",
+    town: "Arroio do Sal - RS",
+    country: "Brazil",
+    phone: "+55 (51) 9684-4479",
     email: "contact@hotelditalia.com.br",
+    whatsapp: "https://wa.me/555196844479",
+    instagram: "https://instagram.com/ditaliahotel",
+    facebook: "https://www.facebook.com/DitaliaHotel"
   },
   about: {
-    title: "Our History",
+    title: "Our Story",
     history: {
       title: "Italian Tradition by the Sea",
-      description: "Founded in 1978 by the Dal Pozzo family, Hotel D'Italia was born from the dream of bringing Italian charm and hospitality to the southern coast of Brazil. For three generations, we have been the preferred destination for families seeking comfort and quality in their vacations."
+      description1: "Founded in 1979 by Mr. Tarcísio Dal Pozzo, Hotel D'Itália was born from the dream of bringing Italian charm and hospitality to the southern Brazilian coast. For three generations, we've been the preferred destination for families seeking comfort and quality during their vacations.",
+      description2: "Enjoy a blend of tradition, comfort, and seaside tranquility at Hotel D'Itália."
     },
     values: {
       title: "Our Values",
       description: "Discover what drives us",
-      items: [
+      valuesList: [
         {
           icon: "🤝",
           title: "Hospitality",
@@ -27,12 +32,12 @@ export const en: TranslationsType['en'] = {
         {
           icon: "⭐",
           title: "Excellence",
-          description: "We strive for perfection in every detail, from breakfast to room service."
+          description: "We strive for perfection in every detail, from breakfast to room cleanliness."
         },
         {
           icon: "🌊",
           title: "Sustainability",
-          description: "Committed to sustainable practices to preserve our beautiful coast for future generations."
+          description: "Committed to solar energy and sustainability to preserve our beautiful coast for future generations."
         }
       ]
     },
@@ -41,24 +46,18 @@ export const en: TranslationsType['en'] = {
       members: [
         { name: "Tilda Dal Pozzo", role: "General Director" },
         { name: "Theo Dal Pozzo", role: "Hospitality Manager" },
-        { name: "X X", role: "Executive Chef" },
-        { name: "Very Long Name and Surname", role: "Events Manager" }
+        { name: "Rejane Lima", role: "Executive Chef" },
+        { name: "Fernanda Camargo Almeida", role: "Employee of the Month - Mar 25" }
       ]
     },
     awards: {
-      title: "Recognitions",
-      awards: [
+      title: "Awards",
+      awardsList: [
         { year: '2023', award: 'Best Beach Hotel - RS Tourism Awards' },
         { year: '2022', award: 'Certificate of Excellence - TripAdvisor' },
         { year: '2021', award: 'Sustainability Award - Hotel Association' }
       ]
     }
-  },
-  admin: {
-    // Add any necessary fields for the admin section
-  },
-  bookingConfirm: {
-    // Add any necessary fields for booking confirmation
   },
   gallery: {
     title: "Our Gallery",
@@ -66,122 +65,92 @@ export const en: TranslationsType['en'] = {
   },
   location: {
     title: "Our Location",
-    description: "Find us on the southern coast of Brazil",
+    description: "Find us on the coast of Rio Grande do Sul",
     hotel: {
       title: "Hotel Information",
       address: "Address: Av. Assis Brasil, 12, Arroio do Sal, RS",
       reference: "Hotel Reference",
-      beach: "Close to the beach",
-      centre: "Near the city center",
-      torres: "Nearby Torres",
-      poa: "Close to Porto Alegre",
+      beach: "Beachfront location",
+      centre: "Located in the center of Arroio do Sal",
+      torres: "30min from Torres",
+      poa: "2hrs from Porto Alegre",
     },
+    map_section: {
+      timeline: {
+        big_picture: "Brazil",
+        normal: "Rio Grande do Sul",
+        zoomed_in: "Litoral Gaúcho",
+      },
+    },
+    locations_nearby: [
+      { name: "Beachfront", icon: "🏖️" },
+      { name: "Central Arroio do Sal", icon: "🏙️" },
+      { name: "30min from Torres", icon: "🏰" },
+      { name: "2hrs from Porto Alegre", icon: "🌆" }
+    ],
   },
   payment: {
     paymentMethods: [
-      {
-        id: 'pix',
-        name: 'PIX',
-        icon: '/payment-icons/pix.svg',
-        description: 'Instant payment'
-      },
-      {
-        id: 'credit',
-        name: 'Credit Card',
-        icon: '/payment-icons/credit-card.svg',
-        description: 'Up to 12x interest-free'
-      },
-      {
-        id: 'googlepay',
-        name: 'Google Pay',
-        icon: '/payment-icons/google-pay.svg',
-        description: 'Fast and secure payment'
-      },
-      {
-        id: 'paypal',
-        name: 'PayPal',
-        icon: '/payment-icons/paypal.svg',
-        description: 'International payment'
-      }
+      { id: 'pix', name: 'PIX', icon: '/payment-icons/pix.svg', description: 'Instant payment' },
+      { id: 'credit', name: 'Credit Card', icon: '/payment-icons/credit-card.svg', description: 'Up to 12 installments, no interest' },
+      { id: 'googlepay', name: 'Google Pay', icon: '/payment-icons/google-pay.svg', description: 'Fast and secure payment' },
+      { id: 'paypal', name: 'PayPal', icon: '/payment-icons/paypal.svg', description: 'International payments' }
     ]
   },
-  reviews: {
-    // Add any necessary fields for reviews
-  },
-  room: {
-    // Add any necessary fields for room details
-  },
-  updates: {
-    // Add any necessary fields for updates
-  },
-  booking_timeline: {
-    // Add any necessary fields for booking timeline
-  },
-  booking_section: {
-    title: "Booking Section Title",
-  },
   hero_section: {
-    // Add any necessary fields for hero section
+    book_now: "Book Now",
+    scroll_down: "Scroll Down"
+  },
+  sidebar: {
+    quick_links: "Quick Links",
+    photo_gallery: "Photo Gallery",
+    amenities: "Amenities",
+    faq: "Frequently Asked Questions"
   },
   information_section: {
-    title: "Information Section Title",
-    description: "Information Section Description",
-  },
-  map: {
-    timeline: {
-      brazil: "Brazil",
-      rs: "Rio Grande do Sul",
-      litoral: "Coastal Region",
-    },
+    title: "Discover Hotel D'Itália",
+    subtitle: "Experience the perfect blend of comfort, luxury, and Italian hospitality",
+    learn_more: "Learn more",
+    info_boxes: [
+      {
+        title: "Luxurious Accommodations",
+        description: "Elegant Italian design combined with modern amenities for a comfortable and memorable stay.",
+        highlights: ["Ocean view suites", "Premium bedding", "Modern amenities"]
+      },
+      {
+        title: "Authentic Italian Cuisine",
+        description: "Savor delicious Italian dishes prepared by our expert chefs with fresh ingredients.",
+        highlights: ["Fresh seafood", "Homemade pasta", "Extensive wine selection"]
+      },
+      {
+        title: "Beachfront Location",
+        description: "Directly on Arroio do Sal’s beautiful beaches with stunning views and easy access.",
+        highlights: ["Private beach access", "Beach dining", "Water activities"]
+      }
+    ]
   },
   newsletter_section: {
     title: "Newsletter Subscription",
-    subscribe: "Subscribe to our newsletter for updates",
+    subscribe: "Subscribe to our newsletter for the latest updates.",
   },
   footer: {
-    copyright: "© 2025 Hotel D'Italia. All rights reserved.",
-    selectLanguage: "Select Language",
-    languages: {
-      en: "English",
-      pt: "Português",
-      es: "Español",
-      fr: "Français",
-      it: "Italiano",
-    },
+    contact: { title: "Contact Hotel D'Itália!" },
   },
   header: {
-    title: "Open Now",
+    title: "Book Now",
     navigation_items: [
-      { name: 'Home', href: '/', icon: '🏠' },
-      { name: 'Gallery', href: '/gallery', icon: '🖼️' },
-      { name: 'Location', href: '/location', icon: '📍' },
-      { name: 'About Us', href: '/about', icon: '✨' },    ],
+      { name: 'Home', href: '/', icon: '/svgs/home.svg' },
+      { name: 'Gallery', href: '/gallery', icon: '/svgs/gallery.svg' },
+      { name: 'Location', href: '/location', icon: '/svgs/location.svg' },
+      { name: 'About Us', href: '/about', icon: '/svgs/stars.svg' },
+    ],
   },
   contact: {
-    needHelp: "Need help?",
+    needHelp: "Need Help?",
     contactUs: "Contact us:",
   },
   home: {
-    welcome: "Welcome to Hotel D'Italia",
+    welcome: "Welcome to Hotel D'Itália",
     description: "Your home away from home in Arroio do Sal",
   },
-  room_comparison: {
-    features: [
-      {
-        name: 'Amenities',
-        features: [
-          { id: 'safe', label: 'Safe', icon: '🔒' },
-          { id: 'hairdryer', label: 'Hairdryer', icon: '💨' },
-        ]
-      },
-      {
-        name: 'Services',
-        features: [
-          { id: 'roomService', label: 'Room Service', icon: '🍽️' },
-          { id: 'cleaning', label: 'Daily Cleaning', icon: '🧹' },
-          { id: 'laundry', label: 'Laundry', icon: '👕' },
-        ]
-      }
-    ]
-  }
-}
+};

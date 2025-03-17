@@ -6,20 +6,24 @@ export const pt: TranslationsType['pt'] = {
     description: "Seu refúgio à beira-mar em Arroio do Sal",
     address: "Av. Assis Brasil, 12",
     town: "Arroio do Sal - RS",
+    country: "Brasil",
     phone: "(51) 9684-4479",
     email: "contato@hotelditalia.com.br",
     whatsapp: "https://wa.me/555196844479",
+    instagram: "https://instagram.com/ditaliahotel",
+    facebook: "https://www.facebook.com/DitaliaHotel"
   },
   about: {
-    title: "Nóssa História",
+    title: "Nossa História",
     history: {
       title: "Tradição Italiana à Beira-mar",
-      description: "Fundado em 1978 pela família Dal Pozzo, o Hotel D'Italia nasceu do sonho de trazer o charme e a hospitalidade italiana para o litoral gaúcho. Por três gerações, temos sido o destino preferido de famílias que buscam conforto e qualidade em suas férias."
+      description1: "Fundado em 1979 pelo Sr. Tarcísio Dal Pozzo, o Hotel D'Itália nasceu do sonho de trazer o charme e a hospitalidade italiana para o litoral gaúcho. Por três gerações, temos sido o destino preferido de famílias que buscam conforto e qualidade em suas férias.",
+      description2: "Desfrute de uma combinação única de tradição, conforto e tranquilidade à beira-mar no Hotel D'Itália."
     },
     values: {
       title: "Nossos Valores",
       description: "Conheça o que nos move",
-      items: [
+      valuesList: [
         {
           icon: "🤝",
           title: "Hospitalidade",
@@ -28,27 +32,27 @@ export const pt: TranslationsType['pt'] = {
         {
           icon: "⭐",
           title: "Excelência",
-          description: "Buscamos a perfeição em cada detalhe, desde o café da manhã até o serviço de quarto."
+          description: "Buscamos a perfeição em cada detalhe, desde o café da manhã até a limpeza que oferecemos."
         },
         {
           icon: "🌊",
           title: "Sustentabilidade",
-          description: "Comprometidos com práticas sustentáveis para preservar nossa bela costa para futuras gerações."
+          description: "Comprometidos com o uso de energia solar e práticas sustentáveis para preservar nossa bela costa para futuras gerações."
         }
       ]
     },
     team: {
       title: "Nossa Equipe",
       members: [
-        { name: "Tilda Dal Pozzo", role: "Diretor Geral" },
+        { name: "Tilda Dal Pozzo", role: "Diretora Geral" },
         { name: "Theo Dal Pozzo", role: "Gerente de Hospitalidade" },
-        { name: "X X", role: "Chef Executivo" },
-        { name: "Very Long Name and Surname", role: "Gerente de Eventos" }
+        { name: "Rejane Lima", role: "Chef Executiva" },
+        { name: "Fernanda Camargo Almeida", role: "Funcionária do mês - Mar 25" }
       ]
     },
     awards: {
       title: "Reconhecimentos",
-      awards: [
+      awardsList: [
         { year: '2023', award: 'Melhor Hotel de Praia - RS Tourism Awards' },
         { year: '2022', award: 'Certificado de Excelência - TripAdvisor' },
         { year: '2021', award: 'Prêmio Sustentabilidade - Associação Hoteleira' }
@@ -56,10 +60,10 @@ export const pt: TranslationsType['pt'] = {
     }
   },
   admin: {
-    
+
   },
   bookingConfirm: {
-    
+
   },
   gallery: {
     title: "Nossa Galeria",
@@ -72,11 +76,24 @@ export const pt: TranslationsType['pt'] = {
       title: "Informações do Hotel",
       address: "Endereço: Av. Assis Brasil, 12, Arroio do Sal, RS",
       reference: "Referência do Hotel",
-      beach: "Perto da praia",
-      centre: "Perto do centro da cidade",
-      torres: "Perto de Torres",
-      poa: "Perto de Porto Alegre",
+      beach: "Na beira da praia",
+      centre: "No centro de Arroio do Sal",
+      torres: "30 min de Torres",
+      poa: "2h de Porto Alegre",
     },
+    map_section: {
+      timeline: {
+        big_picture: "Brasil",
+        normal: "Rio Grande do Sul",
+        zoomed_in: "Litoral Gaúcho",
+      },
+    },
+    locations_nearby: [
+      { name: "Na beira da praia", icon: "🏖️" },
+      { name: "No centro de Arroio do Sal", icon: "🏙️" },
+      { name: "30 min de Torres", icon: "🏰" },
+      { name: "2h de Porto Alegre", icon: "🌆" }
+    ],
   },
   payment: {
     paymentMethods: [
@@ -122,50 +139,65 @@ export const pt: TranslationsType['pt'] = {
 
   },
   hero_section: {
-
+    book_now: "Reservar Agora",
+    scroll_down: "Rolar para Baixo"
+  },
+  sidebar: {
+    quick_links: "Links Rápidos",
+    photo_gallery: "Galeria de Fotos",
+    amenities: "Comodidades",
+    faq: "Perguntas Frequentes"
   },
   information_section: {
+    title: "Descubra o Hotel D'Itália",
+    subtitle: "Vivencie a combinação perfeita entre conforto, luxo e hospitalidade italiana",
+    learn_more: "Saiba mais",
     info_boxes: [
       {
-        title: "Quartos Confortáveis",
-        description: "Escolha entre nossas suítes de luxo ou quartos familiares espaçosos.",
-        imagePath: "🛏️"
+        title: "Acomodações Luxuosas",
+        description: "Nossos quartos combinam design italiano elegante com comodidades modernas para garantir uma estadia confortável e inesquecível.",
+        highlights: [
+          "Suítes com vista para o mar disponíveis",
+          "Roupas de cama premium",
+          "Amenidades modernas em todos os quartos"
+        ]
       },
       {
-        title: "Beira do Mar",
-        description: "Aproveite a vista panorâmica do oceano a partir de sua varanda privativa.",
-        imagePath: "🌊"
+        title: "Culinária Italiana Autêntica",
+        description: "Desfrute de deliciosos pratos italianos preparados por nossos chefs com ingredientes cuidadosamente selecionados.",
+        highlights: [
+          "Frutos do mar frescos e locais",
+          "Massas e pizzas feitas artesanalmente",
+          "Ampla seleção de vinhos"
+        ]
       },
       {
-        title: "Café da Manhã Luxuoso",
-        description: "Desfrute de um café da manhã gourmet com vista para o oceano todas as manhãs.",
-        imagePath: "🥐"
-      },
+        title: "Localização à Beira-mar",
+        description: "Localizado diretamente nas belas praias de Arroio do Sal, oferecendo vistas deslumbrantes e fácil acesso ao mar.",
+        highlights: [
+          "Acesso privativo à praia",
+          "Opções gastronômicas à beira-mar",
+          "Atividades aquáticas disponíveis"
+        ]
+      }
     ]
-  },
-  map_section: {
-    timeline: {
-      brazil: "Brasil",
-      rs: "Rio Grande do Sul",
-      litoral: "Litoral Gaúcho",
-    },
   },
   newsletter_section: {
     title: "Inscrição no Boletim",
-    subscribe: "Inscreva-se em nosso boletim para atualizações",
+    subscribe: "Inscreva-se em nosso boletim para se manter atualizado sobre as últimas novidades.",
   },
   footer: {
     contact: {
-      title: "Entre em Contato"
+      title: "Entre em contato com o D'Itália!"
     },
   },
   header: {
-    title: "Abra Agora",
+    title: "Reservar Agora",
     navigation_items: [
-      { name: 'Início', href: '/', icon: '🏠' },
-      { name: 'Galeria', href: '/gallery', icon: '🖼️' },
-      { name: 'Localização', href: '/location', icon: '📍' },
-      { name: 'Sobre Nós', href: '/about', icon: '✨' },
+      { name: 'Início', href: '/', icon: '/svgs/home.svg' },
+      { name: 'Galeria', href: '/gallery', icon: '/svgs/gallery.svg' },
+      { name: 'Localização', href: '/location', icon: '/svgs/location.svg' },
+      { name: 'Nossa História', href: '/about', icon: '/svgs/stars.svg' },
     ],
   },
   contact: {
@@ -175,7 +207,6 @@ export const pt: TranslationsType['pt'] = {
   home: {
     welcome: "Bem-vindo ao Hotel D'Itália",
     description: "Sua casa longe de casa em Arroio do Sal",
-    // Add all text from home page
   },
   room_comparison: {
     features: [
@@ -183,17 +214,17 @@ export const pt: TranslationsType['pt'] = {
         name: 'Comodidades',
         features: [
           { id: 'safe', label: 'Cofre', icon: '🔒' },
-          { id: 'hairdryer', label: 'Secador', icon: '💨' },
+          { id: 'hairdryer', label: 'Secador de cabelo', icon: '💨' },
         ]
       },
       {
         name: 'Serviços',
         features: [
-          { id: 'roomService', label: 'Serviço de Quarto', icon: '🍽️' },
+          { id: 'roomService', label: 'Serviço de quarto', icon: '🍽️' },
           { id: 'cleaning', label: 'Limpeza Diária', icon: '🧹' },
           { id: 'laundry', label: 'Lavanderia', icon: '👕' },
         ]
       }
     ]
   }
-}
+};

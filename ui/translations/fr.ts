@@ -2,37 +2,42 @@ import { TranslationsType } from "./index";
 
 export const fr: TranslationsType['fr'] = {
   hotel: {
-    name: "Hôtel D'Italia",
-    description: "Votre refuge en bord de mer à Arroio do Sal",
+    name: "Hôtel D'Itália",
+    description: "Votre refuge au bord de la mer à Arroio do Sal",
     address: "Av. Assis Brasil, 12",
-    town: "Arroio do Sal, RS",
-    phone: "(51) 9684-4479",
-    email: "contact@hotelditalia.com.br",
+    town: "Arroio do Sal - RS",
+    country: "Brésil",
+    phone: "+55 (51) 9684-4479",
+    email: "contato@hotelditalia.com.br",
+    whatsapp: "https://wa.me/555196844479",
+    instagram: "https://instagram.com/ditaliahotel",
+    facebook: "https://www.facebook.com/DitaliaHotel"
   },
   about: {
     title: "Notre Histoire",
     history: {
       title: "Tradition Italienne au Bord de la Mer",
-      description: "Fondé en 1978 par la famille Dal Pozzo, l'Hôtel D'Italia est né du rêve d'apporter le charme et l'hospitalité italienne à la côte sud du Brésil. Pendant trois générations, nous avons été la destination préférée des familles à la recherche de confort et de qualité pendant leurs vacances."
+      description1: "Fondé en 1979 par M. Tarcísio Dal Pozzo, l'Hôtel D'Itália est né du rêve d'apporter le charme et l'hospitalité italienne sur la côte du Rio Grande do Sul. Depuis trois générations, nous sommes la destination favorite des familles en quête de confort et d'excellence pour leurs vacances.",
+      description2: "Profitez d'une combinaison unique de tradition, de confort et de sérénité face à l'océan à l'Hôtel D'Itália."
     },
     values: {
       title: "Nos Valeurs",
-      description: "Découvrez ce qui nous motive",
-      items: [
+      description: "Découvrez ce qui nous inspire",
+      valuesList: [
         {
           icon: "🤝",
           title: "Hospitalité",
-          description: "Nous accueillons chaque invité comme un membre de notre famille, offrant un service personnalisé et chaleureux."
+          description: "Nous accueillons chaque client comme un membre de notre famille, avec chaleur et attention personnalisée."
         },
         {
           icon: "⭐",
           title: "Excellence",
-          description: "Nous visons la perfection dans chaque détail, du petit-déjeuner au service en chambre."
+          description: "Nous visons la perfection dans chaque détail, du petit-déjeuner à la propreté impeccable des espaces."
         },
         {
           icon: "🌊",
           title: "Durabilité",
-          description: "Engagés dans des pratiques durables pour préserver notre belle côte pour les générations futures."
+          description: "Engagés à utiliser l'énergie solaire et adopter des pratiques durables pour préserver notre belle côte pour les générations futures."
         }
       ]
     },
@@ -41,24 +46,24 @@ export const fr: TranslationsType['fr'] = {
       members: [
         { name: "Tilda Dal Pozzo", role: "Directrice Générale" },
         { name: "Theo Dal Pozzo", role: "Responsable de l'Hospitalité" },
-        { name: "X X", role: "Chef Exécutif" },
-        { name: "Nom et Prénom Très Long", role: "Responsable des Événements" }
+        { name: "Rejane Lima", role: "Chef Exécutif" },
+        { name: "Fernanda Camargo Almeida", role: "Employée du mois - Mars 25" }
       ]
     },
     awards: {
-      title: "Reconnaissances",
-      awards: [
-        { year: '2023', award: 'Meilleur Hôtel de Plage - Prix du Tourisme de RS' },
-        { year: '2022', award: 'Certificat d’Excellence - TripAdvisor' },
+      title: "Prix et Distinctions",
+      awardsList: [
+        { year: '2023', award: 'Meilleur Hôtel de Plage - RS Tourism Awards' },
+        { year: '2022', award: "Certificat d'Excellence - TripAdvisor" },
         { year: '2021', award: 'Prix de la Durabilité - Association Hôtelière' }
       ]
     }
   },
   admin: {
-    // Ajoutez tous les champs nécessaires pour la section admin
+
   },
   bookingConfirm: {
-    // Ajoutez tous les champs nécessaires pour la confirmation de réservation
+
   },
   gallery: {
     title: "Notre Galerie",
@@ -66,16 +71,29 @@ export const fr: TranslationsType['fr'] = {
   },
   location: {
     title: "Notre Emplacement",
-    description: "Trouvez-nous sur la côte sud du Brésil",
+    description: "Retrouvez-nous sur la côte du Rio Grande do Sul",
     hotel: {
       title: "Informations sur l'Hôtel",
-      address: "Adresse: Av. Assis Brasil, 12, Arroio do Sal, RS",
-      reference: "Référence de l'Hôtel",
-      beach: "Près de la plage",
-      centre: "Près du centre-ville",
-      torres: "Près de Torres",
-      poa: "Près de Porto Alegre",
+      address: "Adresse : Av. Assis Brasil, 12, Arroio do Sal, RS",
+      reference: "Référence de l'hôtel",
+      beach: "En bord de plage",
+      centre: "Au centre d'Arroio do Sal",
+      torres: "À 30 min de Torres",
+      poa: "À 2h de Porto Alegre",
     },
+    map_section: {
+      timeline: {
+        big_picture: "Brésil",
+        normal: "Rio Grande do Sul",
+        zoomed_in: "Litoral Gaúcho",
+      },
+    },
+    locations_nearby: [
+      { name: "En bord de plage", icon: "🏖️" },
+      { name: "Au centre d'Arroio do Sal", icon: "🏙️" },
+      { name: "À 30 min de Torres", icon: "🏰" },
+      { name: "À 2h de Porto Alegre", icon: "🌆" }
+    ],
   },
   payment: {
     paymentMethods: [
@@ -89,7 +107,7 @@ export const fr: TranslationsType['fr'] = {
         id: 'credit',
         name: 'Carte de Crédit',
         icon: '/payment-icons/credit-card.svg',
-        description: 'Jusqu’à 12x sans intérêt'
+        description: 'Jusqu’à 12 fois sans frais'
       },
       {
         id: 'googlepay',
@@ -106,61 +124,94 @@ export const fr: TranslationsType['fr'] = {
     ]
   },
   reviews: {
-    // Ajoutez tous les champs nécessaires pour les avis
+
   },
   room: {
-    // Ajoutez tous les champs nécessaires pour les détails
+
   },
   updates: {
-    // Ajoutez tous les champs nécessaires pour les mises à jour
+
   },
   booking_timeline: {
-    // Ajoutez tous les champs nécessaires pour la chronologie des réservations
+
   },
   booking_section: {
-    title: "Titre de la Section de Réservation", // Placeholder pour le titre de la section de réservation
+
   },
   hero_section: {
-    // Ajoutez tous les champs nécessaires pour la section hero
+    book_now: "Réserver Maintenant",
+    scroll_down: "Faire défiler vers le bas"
+  },
+  sidebar: {
+    quick_links: "Liens Rapides",
+    photo_gallery: "Galerie de Photos",
+    amenities: "Équipements",
+    faq: "Questions Fréquentes"
   },
   information_section: {
-    title: "Titre de la Section d'Information", // Placeholder pour le titre de la section d'information
-    description: "Description de la Section d'Information", // Placeholder pour la description de la section d'information
-  },
-  map_section: {
-    timeline: {
-      brazil: "Brésil",
-      rs: "Rio Grande do Sul",
-      litoral: "Région Côtière",
-    },
+    title: "Découvrez l'Hôtel D'Itália",
+    subtitle: "Vivez l’alliance parfaite du confort, du luxe et de l’hospitalité italienne",
+    learn_more: "En savoir plus",
+    info_boxes: [
+      {
+        title: "Chambres de Luxe",
+        description: "Nos chambres conjuguent élégance italienne et équipements modernes pour un séjour mémorable.",
+        highlights: [
+          "Suites avec vue sur la mer disponibles",
+          "Literie haut de gamme",
+          "Équipements modernes dans chaque chambre"
+        ]
+      },
+      {
+        title: "Cuisine Italienne Authentique",
+        description: "Savourez des plats authentiques préparés par nos chefs avec des ingrédients soigneusement sélectionnés.",
+        highlights: [
+          "Fruits de mer frais et locaux",
+          "Pâtes et pizzas maison",
+          "Large sélection de vins"
+        ]
+      },
+      {
+        title: "Situation en Bord de Mer",
+        description: "Situé directement sur la magnifique plage d’Arroio do Sal, offrant une vue imprenable et un accès facile à la mer.",
+        highlights: [
+          "Accès privé à la plage",
+          "Restauration face à la mer",
+          "Activités nautiques disponibles"
+        ]
+      }
+    ]
   },
   newsletter_section: {
     title: "Inscription à la Newsletter",
-    subscribe: "Inscrivez-vous à notre newsletter pour des mises à jour",
+    subscribe: "Abonnez-vous pour recevoir nos dernières actualités.",
   },
   footer: {
-    // Ajoutez tous les champs nécessaires pour le pied de page
+    contact: {
+      title: "Contactez l'Hôtel D'Itália !"
+    },
   },
   header: {
-    title: "Ouvert Maintenant",
+    title: "Réserver Maintenant",
     navigation_items: [
-      { name: 'FRENCH', href: '/', icon: '🏠' },
-      { name: 'FRENCH', href: '/gallery', icon: '🖼️' },
-      { name: 'FRENCH', href: '/location', icon: '📍' },
-      { name: 'FRENCH', href: '/about', icon: '✨' },    ],
+      { name: 'Accueil', href: '/', icon: '/svgs/home.svg' },
+      { name: 'Galerie', href: '/gallery', icon: '/svgs/gallery.svg' },
+      { name: 'Emplacement', href: '/location', icon: '/svgs/location.svg' },
+      { name: 'À Propos', href: '/about', icon: '/svgs/stars.svg' },
+    ],
   },
   contact: {
-    needHelp: "Besoin d'aide?",
-    contactUs: "Contactez-nous:",
+    needHelp: "Besoin d'aide ?",
+    contactUs: "Contactez-nous :",
   },
   home: {
-    welcome: "Bienvenue à l'Hôtel D'Italia",
-    description: "Votre maison loin de chez vous à Arroio do Sal",
+    welcome: "Bienvenue à l'Hôtel D'Itália",
+    description: "Votre chez-vous loin de chez vous à Arroio do Sal",
   },
   room_comparison: {
     features: [
       {
-        name: 'Commodités',
+        name: 'Équipements',
         features: [
           { id: 'safe', label: 'Coffre-fort', icon: '🔒' },
           { id: 'hairdryer', label: 'Sèche-cheveux', icon: '💨' },
@@ -169,11 +220,11 @@ export const fr: TranslationsType['fr'] = {
       {
         name: 'Services',
         features: [
-          { id: 'roomService', label: 'Service d\'étage', icon: '🍽️' },
-          { id: 'cleaning', label: 'Nettoyage Quotidien', icon: '🧹' },
+          { id: 'roomService', label: 'Service en chambre', icon: '🍽️' },
+          { id: 'cleaning', label: 'Nettoyage quotidien', icon: '🧹' },
           { id: 'laundry', label: 'Blanchisserie', icon: '👕' },
         ]
       }
     ]
   }
-}
+};

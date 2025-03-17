@@ -3,7 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { useLanguageContext } from '@/context/LanguageContext';
-import { config } from 'process';
 
 const Timeline = ({ scrollYProgress }: { scrollYProgress: any }) => {
     const { t } = useLanguageContext();
@@ -11,9 +10,9 @@ const Timeline = ({ scrollYProgress }: { scrollYProgress: any }) => {
 
 
     const items = [
-        t('map.timeline.brazil'),
-        t('map.timeline.rs'),
-        t('map.timeline.litoral'),
+        t('map.timeline.big_picture'),
+        t('map.timeline.normal'),
+        t('map.timeline.zoomed_in'),
     ];
 
     const circleSizes = items.map((item, index) =>
