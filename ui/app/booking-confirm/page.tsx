@@ -21,7 +21,7 @@ type Room = {
   maxGuests: number
 }
 
-export default function BookingConfirmPage() {
+function BookingConfirmPage() {
   const { t } = useLanguageContext();
   
   const [selectedRooms, setSelectedRooms] = useState<string[]>([])
