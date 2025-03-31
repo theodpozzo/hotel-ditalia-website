@@ -89,7 +89,7 @@ export const pt: TranslationsType['pt'] = {
     explore_area: "Explore a Região",
     hotel: {
       title: "Informações do Hotel",
-      address: "Endereço: Av. Assis Brasil, 12, Arroio do Sal, RS",
+      address: "Av. Assis Brasil, 12, Arroio do Sal, RS",
       reference: "Referência do Hotel",
       beach: "Na beira da praia",
       centre: "No centro de Arroio do Sal",
@@ -214,11 +214,29 @@ export const pt: TranslationsType['pt'] = {
   newsletter_section: {
     title: "Inscrição no Boletim",
     subscribe: "Inscreva-se em nosso boletim para se manter atualizado sobre as últimas novidades.",
+    ssubscribe:"Inscrever-se"
   },
   footer: {
     contact: {
       title: "Entre em contato com o D'Itália!"
     },
+    socials: {
+      title: "Redes Sociais",
+    },
+    endpg: {
+      rr: "Todos os direitos reservados.",
+      priv: "Política de Privacidade",
+      tos: "Termos de Uso",
+      cookie: "Política de Cookies"
+    },
+    facilities: [
+      { name: 'Beira Mar', emoji: '🏊'},
+      { name: 'Estacionamento Privado', emoji: '🅿️'},
+      { name: 'Café da manhã', emoji: '🍳'},
+      { name: 'Wi-Fi', emoji: '📶'},
+      { name: 'Acessibilidade', emoji: '♿'},
+      { name: 'Pet friendly', emoji: '🐕'}
+    ]
   },
   header: {
     title: "Reservar Agora",

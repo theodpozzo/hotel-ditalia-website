@@ -6,10 +6,14 @@ import Image from "next/image"
 import { useLanguageContext } from "@/context/LanguageContext"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Mail, Phone, MapPin, Clock, ChevronRight } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone, MapPin, ChevronRight } from "lucide-react"
 
 export function Footer() {
   const { t, tArray } = useLanguageContext()
+
+  const facilities = tArray("footer.facilities") as unknown as { name: string; emoji: string }[];
+
+
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -39,7 +43,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-4">
               <Image
-                src="/logo/Hotel D'Italia Only Logo.jpg"
+                src="/logo/hotel-ditalia-logo.jpg"
                 alt={t("hotel.name") as string}
                 width={60}
                 height={60}
@@ -126,30 +130,12 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold mt-6 mb-4 border-b border-blue-400 pb-2">Facilidades</h3>
             <div className="grid grid-cols-2 gap-2 text-sm">
-              <div className="flex items-center gap-1">
-                <span>🏊</span>
-                <span>Beira Mar</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span>🅿️</span>
-                <span>Estacionamento</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span>🍳</span>
-                <span>Café da manhã</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span>📶</span>
-                <span>Wi-Fi</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span>♿</span>
-                <span>Acessibilidade</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <span>🐕</span>
-                <span>Pet friendly</span>
-              </div>
+              {facilities.map((item, index) => (
+                <li key={index} className="flex items-center gap-3 rounded-lg">
+                  <span className="text-white">{item.emoji}</span>
+                  <span className="text-white">{item.name}</span>
+                </li>
+              ))}
             </div>
           </div>
 
@@ -167,11 +153,11 @@ export function Footer() {
                 className="bg-white/10 border-blue-400 text-white placeholder:text-blue-200"
               />
               <Button type="submit" className="w-full bg-white text-[#004175] hover:bg-blue-100">
-                Inscrever-se
+                {t('newsletter_section.ssubscribe').toString()}
               </Button>
             </form>
 
-            <h3 className="text-lg font-semibold mt-6 mb-4 border-b border-blue-400 pb-2">Redes Sociais</h3>
+            <h3 className="text-lg font-semibold mt-6 mb-4 border-b border-blue-400 pb-2">{t('footer.socials.title').toString()}</h3>
             <div className="flex gap-4">
               <a
                 href={t('hotel.facebook').toString()}
@@ -198,17 +184,17 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-blue-400 text-center text-sm text-blue-200">
           <p>
-            © {new Date().getFullYear()} {t("hotel.name") as string}. Todos os direitos reservados.
+            © {new Date().getFullYear()} {t("hotel.name") as string}. {t('footer.endpg.rr').toString()}
           </p>
           <div className="flex justify-center gap-4 mt-2">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">
-              Política de Privacidade
+            {t('footer.endpg.priv').toString()}
             </Link>
             <Link href="/terms" className="hover:text-white transition-colors">
-              Termos de Uso
+            {t('footer.endpg.tos').toString()}
             </Link>
             <Link href="/cookies" className="hover:text-white transition-colors">
-              Política de Cookies
+            {t('footer.endpg.cookie').toString()}
             </Link>
           </div>
         </div>

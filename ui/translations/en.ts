@@ -78,7 +78,7 @@ export const en: TranslationsType['en'] = {
     description: "Find us on the coast of Rio Grande do Sul",
     hotel: {
       title: "Hotel Information",
-      address: "Address: Av. Assis Brasil, 12, Arroio do Sal, RS",
+      address: "Av. Assis Brasil, 12, Arroio do Sal, RS",
       reference: "Hotel Reference",
       beach: "Beachfront location",
       centre: "Located in the center of Arroio do Sal",

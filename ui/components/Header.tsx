@@ -3,12 +3,10 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { useRouter } from "next/navigation"
 import { useLanguageContext } from "@/context/LanguageContext"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
-import { Button } from "@/components/ui/button"
-import { Menu, Mail, MapPin, Calendar, ChevronRight } from "lucide-react"
+import { Menu, Mail, MapPin, ChevronRight } from "lucide-react"
 
 const languages = [
   { code: "en", label: "English", flag: "/flags/gb.svg" },
@@ -22,7 +20,6 @@ export function Header() {
   const { language, setLanguage, t, tArray } = useLanguageContext()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const router = useRouter()
 
   const navigationItems = tArray("header.navigation_items") as unknown as { name: string; href: string; icon: string }[]
 
@@ -42,18 +39,18 @@ export function Header() {
   }, [scrolled])
 
   // Scroll to booking section logic
-  const scrollToBooking = () => {
-    const bookingSection = document.getElementById("booking-section")
-    if (bookingSection) {
-      const offset = 80 // Account for header height
-      const elementPosition = bookingSection.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - offset
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
-    }
-  }
+  // const scrollToBooking = () => {
+  //   const bookingSection = document.getElementById("booking-section")
+  //   if (bookingSection) {
+  //     const offset = 80 // Account for header height
+  //     const elementPosition = bookingSection.getBoundingClientRect().top
+  //     const offsetPosition = elementPosition + window.pageYOffset - offset
+  //     window.scrollTo({
+  //       top: offsetPosition,
+  //       behavior: "smooth",
+  //     })
+  //   }
+  // }
 
   return (
     <header
@@ -89,7 +86,7 @@ export function Header() {
                           style={{ animationDuration: "3s" }}
                         ></div>
                         <Image
-                          src="/logo/Hotel D'Italia Only Logo.jpg"
+                          src="/logo/hotel-ditalia-logo.jpg"
                           alt="Hotel D'Italia Logo"
                           width={80}
                           height={80}
@@ -247,7 +244,7 @@ export function Header() {
                       ></path>
                     </svg>
                   </div>
-                  <p>© {new Date().getFullYear()} Hotel D'Italia</p>
+                  <p>© {new Date().getFullYear()} {t('hotel.name').toString()}</p>
                 </div>
               </div>
             </SheetContent>
@@ -257,7 +254,7 @@ export function Header() {
           <Link href="/" className="hidden md:flex items-center gap-3">
             <div className="relative w-12 h-12 overflow-hidden rounded-full border-2 border-[#004175] shadow-sm">
               <Image
-                src="/logo/Hotel D'Italia Only Logo.jpg"
+                src="/logo/hotel-ditalia-logo.jpg"
                 alt={t("hotel.name") as string}
                 fill
                 className="object-cover"
@@ -346,7 +343,7 @@ export function Header() {
               }`}
           >
             <Image
-              src="/logo/Hotel D'Italia Only Logo.jpg"
+              src="/logo/hotel-ditalia-logo.jpg"
               alt={t("hotel.name") as string}
               fill
               className="rounded-full object-cover p-1"

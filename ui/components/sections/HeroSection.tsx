@@ -5,10 +5,9 @@ import axios from 'axios'
 import { useLanguageContext } from '@/context/LanguageContext'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import { Button } from 'react-day-picker'
 
 export function HeroSection() {
-  const { language, setLanguage, t, tArray} = useLanguageContext();
+  const { t } = useLanguageContext();
   const [weather, setWeather] = useState({ temp: '', icon: '☀️' })
 
   useEffect(() => {
@@ -34,8 +33,8 @@ export function HeroSection() {
     if (weatherId >= 500 && weatherId < 600) return '🌧️' // Rain
     if (weatherId >= 600 && weatherId < 700) return '❄️' // Snow
     if (weatherId >= 700 && weatherId < 800) return '🌫️' // Atmosphere
-    if (weatherId === 800) return '☀️' // Clear
-    if (weatherId > 800) return '☁️' // Clouds
+    if (weatherId >= 800 && weatherId < 900) return '☀️' // Clear
+    if (weatherId >= 900) return '☁️' // Clouds
     return '❓' // Unknown
   }
 

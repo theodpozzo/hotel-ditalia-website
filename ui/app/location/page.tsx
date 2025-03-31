@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MapPin, Navigation, Car, Compass, ChevronRight, ExternalLink } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { MapPin, Car, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { useLanguageContext } from "@/context/LanguageContext";
 import Image from "next/image";
 import gsap from "gsap";
@@ -11,11 +11,6 @@ export default function LocationPage() {
   const { t, tArray } = useLanguageContext();
 
   const locations = tArray("location.locations_nearby") as unknown as { name: string; icon: string }[];
-
-  const HOTEL_COORDS = {
-    lat: t("hotel.location.lat").toString(), // -29.550450
-    lng: t("hotel.location.lng").toString(), // -49.885753
-  };
 
   const [activeMap, setActiveMap] = useState<"brazil" | "rs" | "litoral">("brazil");
 
@@ -69,9 +64,9 @@ export default function LocationPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="space-y-8">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-              <div className="h-48 relative">
-                <Image src="/placeholder.svg?height=400&width=600" alt="Hotel D'Italia" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+              <div className="h-96 relative">
+                <Image src="/images/hotel_nice_photo_edited.jpg" alt="Hotel D'Italia" fill className="object-cover" style={{ objectPosition: 'center 80%' }}/>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent flex items-start">
                   <div className="p-6 text-white">
                     <h2 className="text-2xl font-bold">{t("hotel.name").toString()}</h2>
                     <p className="text-white/80">
@@ -87,7 +82,7 @@ export default function LocationPage() {
                 </div>
 
                 <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${HOTEL_COORDS.lat},${HOTEL_COORDS.lng}`}
+                  href={`https://www.google.com/maps/dir/?api=1&destination=Hotel+D'Italia,+Arroio+do+Sal,+Brasil`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full bg-[#004175] hover:bg-[#00335d] text-white py-3 px-4 rounded-lg text-center font-medium transition-colors duration-200"
@@ -208,14 +203,14 @@ export default function LocationPage() {
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
             </svg>
           </div>
-            {/* Pinterest-style Board for Details */}
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">
-              {t("location.explore_area").toString() || "Explore the Area"}
-            </h2>
+          {/* Pinterest-style Board for Details */}
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+            {t("location.explore_area").toString() || "Explore the Area"}
+          </h2>
           <div className="bg-[#ffffff] mt-120 mb-120 transform translate-y-200">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden -mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden pl-4 pr-4">
               {/* Attractions Card */}
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-duration-300">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2">
                 <div className="h-48 relative">
                   <Image src="/images/farol.jpg" alt="Beach attractions" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -259,7 +254,7 @@ export default function LocationPage() {
               </div>
 
               {/* Directions from Porto Alegre */}
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2">
                 <div className="h-48 relative">
                   <Image src="/images/poa.jpg" alt="Directions from Porto Alegre" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -298,7 +293,7 @@ export default function LocationPage() {
               </div>
 
               {/* Directions from Torres */}
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2">
                 <div className="h-48 relative">
                   <Image src="/images/torres.jpg" alt="Directions from Torres" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
@@ -335,9 +330,9 @@ export default function LocationPage() {
               </div>
 
               {/* Transportation Options Card */}
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2">
                 <div className="h-48 relative">
-                  <Image src="/placeholder.svg?height=400&width=600" alt="Transportation Options" fill className="object-cover" />
+                  <Image src="/images/freeway.jpg" alt="Transportation Options" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                     <div className="p-6 text-white">
                       <h3 className="text-2xl font-bold">
@@ -379,9 +374,9 @@ export default function LocationPage() {
               </div>
 
               {/* Nearby Locations Card */}
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden ">
+              <div className="bg-white rounded-2xl overflow-hidden border-2">
                 <div className="h-48 relative">
-                  <Image src="/placeholder.svg?height=400&width=600" alt="Nearby Locations" fill className="object-cover" />
+                  <Image src="/images/arroio-drone.jpg" alt="Nearby Locations" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                     <div className="p-6 text-white">
                       <h3 className="text-2xl font-bold">
@@ -403,9 +398,9 @@ export default function LocationPage() {
               </div>
 
               {/* Travel Tips Card */}
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+              <div className="bg-white rounded-2xl overflow-hidden border-2">
                 <div className="h-48 relative">
-                  <Image src="/placeholder.svg?height=400&width=600" alt="Travel Tips" fill className="object-cover" />
+                  <Image src="/images/waterfall.jpg" alt="Travel Tips" fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                     <div className="p-6 text-white">
                       <h3 className="text-2xl font-bold">
@@ -450,7 +445,7 @@ export default function LocationPage() {
             </div>
           </div>
           {/* Wave Design at the Bottom */}
-          <div className="text-[#ffffff] bg-[#004175] rounded-2xl absolute top-[-120] left-0 mb-4 w-full overflow-hidden leading-[0]">
+          <div className="bg-[#004175] absolute top-[-120] left-0 mb-4 w-full overflow-hidden leading-[0] text-white">
             <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-120 fill-current">
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
             </svg>
@@ -458,7 +453,7 @@ export default function LocationPage() {
         </div>
 
         {/* Contact Section */}
-        <div className="mt-16 bg-blue-50 rounded-2xl p-8 shadow-lg">
+        <div className="mt-16 bg-blue-50 rounded-2xl p-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-[#004175]">
               {t("location.need_help").toString() || "Need Help Getting Here?"}
