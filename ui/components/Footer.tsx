@@ -6,7 +6,7 @@ import Image from "next/image"
 import { useLanguageContext } from "@/context/LanguageContext"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Mail, Phone, MapPin, Clock, ChevronRight } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone, MapPin, ChevronRight } from "lucide-react"
 
 export function Footer() {
   const { t, tArray } = useLanguageContext()

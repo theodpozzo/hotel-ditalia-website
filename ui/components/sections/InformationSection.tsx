@@ -2,7 +2,7 @@
 
 import React from "react"
 import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+// import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import { useLanguageContext } from "@/context/LanguageContext"
 import { ArrowRight, Star } from "lucide-react"
@@ -56,24 +56,15 @@ export function InformationSection() {
 
         <div className="space-y-24 md:space-y-32">
           {infoBoxes.map((box, index) => {
+            
             if (!inViewRefs.current[index]) {
               inViewRefs.current[index] = null
             }
 
-            const { ref, inView } = useInView({
-              triggerOnce: true,
-              threshold: 0.1,
-            })
-
             return (
               <motion.div
-                ref={(el) => {
-                  inViewRefs.current[index] = el
-                  ref(el)
-                }}
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} 
                   items-center gap-8 md:gap-16`}
@@ -101,7 +92,6 @@ export function InformationSection() {
                     {/* Yellow animated underline */}
                     <motion.div
                       initial={{ width: 0 }}
-                      animate={inView ? { width: "3rem" } : { width: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 }}
                       className="h-1 bg-yellow-400 mb-4"
                     />
@@ -123,7 +113,6 @@ export function InformationSection() {
                           <motion.li
                             key={i}
                             initial={{ opacity: 0, x: -10 }}
-                            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                             transition={{ duration: 0.4, delay: 0.4 + i * 0.1 }}
                             className="flex items-start gap-2"
                           >

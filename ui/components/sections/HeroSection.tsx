@@ -5,10 +5,9 @@ import axios from 'axios'
 import { useLanguageContext } from '@/context/LanguageContext'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import { Button } from 'react-day-picker'
 
 export function HeroSection() {
-  const { language, setLanguage, t, tArray} = useLanguageContext();
+  const { t } = useLanguageContext();
   const [weather, setWeather] = useState({ temp: '', icon: '☀️' })
 
   useEffect(() => {

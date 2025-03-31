@@ -9,11 +9,11 @@ import { DateRange } from "react-day-picker"
 import { useRouter } from 'next/navigation'
 import { addDays } from 'date-fns'
 import { useTranslation } from '@/hooks/useTranslation';
-import { useLanguageContext } from '@/context/LanguageContext';
+// import { useLanguageContext } from '@/context/LanguageContext';
 
 export function BookingSection() {
   const { t } = useTranslation();
-  const { setLanguage } = useLanguageContext();
+  // const { setLanguage } = useLanguageContext();
 
   // Initialize router for navigation
   const router = useRouter()

@@ -8,6 +8,10 @@
     "react-intersection-observer": "^9.16.0"
   },
   "scripts": {
-    "build": "next build"
+    "build": "next build",
+    "start": "next start",
+    "install:ui": "cd ui && npm install",
+    "build:ui": "cd ui && npm run build",
+    "start:ui": "cd ui && npm start"
   }
 }

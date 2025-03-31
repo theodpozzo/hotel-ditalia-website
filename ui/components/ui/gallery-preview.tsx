@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { galleryData } from "@/lib/gallery-data"
 
 export default function GalleryPreview() {
   const { t } = useLanguageContext()
