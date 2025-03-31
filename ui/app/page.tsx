@@ -3,7 +3,6 @@
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from 'react'
 import { MainPage } from "@/components/MainPage"
-import { LanguageProvider } from '@/context/LanguageContext'
 
 export default function Home() {
   const searchParams = useSearchParams()
@@ -25,9 +24,7 @@ export default function Home() {
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
-      <LanguageProvider>
         <MainPage />
-      </LanguageProvider>
     </section>
   );
 }

@@ -8,7 +8,7 @@ import { ChevronDown } from 'lucide-react'
 import { Button } from 'react-day-picker'
 
 export function HeroSection() {
-  const { t } = useLanguageContext()
+  const { language, setLanguage, t, tArray} = useLanguageContext();
   const [weather, setWeather] = useState({ temp: '', icon: '☀️' })
 
   useEffect(() => {
@@ -102,7 +102,7 @@ export function HeroSection() {
           href={`${t('hotel.whatsapp')}`}
           className="mt-6 inline-block px-8 py-4 bg-white text-[#004175] font-semibold text-lg rounded transition-all duration-300 hover:bg-blue-100 hover:shadow-lg"
         >
-          RESERVAR
+          {t('hero_section.book_now').toString()}
         </a>
       </div>
 
@@ -114,7 +114,7 @@ export function HeroSection() {
         transition={{ delay: 1.5, duration: 0.8 }}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center"
       >
-        <span className="text-white/70 text-xs uppercase tracking-widest mb-2">Explore</span>
+        <span className="text-white/70 text-xs uppercase tracking-widest mb-2">{t('hero_section.scroll_down').toString()}</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}

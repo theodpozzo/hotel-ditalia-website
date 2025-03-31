@@ -1,5 +1,5 @@
 'use client';
-import React, { createContext, useState, ReactNode, useContext } from 'react';
+import React, { createContext, useState, ReactNode, useContext, useEffect } from 'react';
 import { translations, TranslationValue } from '@/translations/index';
 
 interface LanguageContextType {
@@ -13,7 +13,7 @@ interface LanguageContextType {
 // Create context with a default value matching the interface
 const LanguageContext = createContext<LanguageContextType>({
   language: 'pt',
-  setLanguage: () => {},
+  setLanguage: () => { },
   t: (key: string) => key,
   tObject: <T,>(key: string): T => ({} as T),
   tArray: (key: string) => [],
@@ -34,10 +34,18 @@ interface LanguageProviderProps {
 export function LanguageProvider({ children }: LanguageProviderProps) {
   const [language, setLanguage] = useState('pt');
 
+  useEffect(() => {
+    const browserLang = navigator.language.slice(0, 2)
+    if (['en', 'pt', 'es', 'fr', 'it'].includes(browserLang) && language === 'pt') {
+      setLanguage(browserLang)
+    }
+  }, [])
+
+
   // Function to get a nested value from the translation object
   const getNestedValue = (obj: any, path: string[]): any => {
-    return path.reduce((current, key) => 
-      current && typeof current === 'object' ? current[key] : undefined, 
+    return path.reduce((current, key) =>
+      current && typeof current === 'object' ? current[key] : undefined,
       obj
     );
   };

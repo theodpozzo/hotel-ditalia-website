@@ -66,12 +66,27 @@ export const pt: TranslationsType['pt'] = {
 
   },
   gallery: {
-    title: "Nossa Galeria",
-    description: "Conheça nossas instalações",
+    title: "Galeria",
+    img: "Imagem",
+    close: "Fechar",
+    previous: "Anterior",
+    next: "Próximo",
+    categories: {
+      rooms: "Quartos",
+      breakfast: "Café da Manhã",
+      socialAreas: "Áreas Sociais",
+      views: "Vistas",
+      nearbyAttractions: "Atrações Próximas",
+    }
   },
   location: {
     title: "Nossa Localização",
     description: "Encontre-nos no litoral gaúcho",
+    get_directions: "Obter Direções",
+    need_help: "Precisa de Ajuda?",
+    contact_us: "Entre em Contato Conosco",
+    live_chat: "Atendimento ao Vivo",
+    explore_area: "Explore a Região",
     hotel: {
       title: "Informações do Hotel",
       address: "Endereço: Av. Assis Brasil, 12, Arroio do Sal, RS",
@@ -83,9 +98,10 @@ export const pt: TranslationsType['pt'] = {
     },
     map_section: {
       timeline: {
-        big_picture: "Brasil",
-        normal: "Rio Grande do Sul",
-        zoomed_in: "Litoral Gaúcho",
+        brazil: "Brasil",
+        rs: "Rio Grande do Sul",
+        litoral: "Litoral Gaúcho",
+        city: "Cidade"
       },
     },
     locations_nearby: [
@@ -94,6 +110,19 @@ export const pt: TranslationsType['pt'] = {
       { name: "30 min de Torres", icon: "🏰" },
       { name: "2h de Porto Alegre", icon: "🌆" }
     ],
+    transportation: {
+      title: "Opções de Transporte"
+    },
+    directions: {
+      porto_alegre: "De Porto Alegre",
+      torres: "De Torres"
+    },
+    attractions: {
+      title: "Atrações"
+    },
+    travel_tips: {
+      title: "Dicas de Viagem"
+    }
   },
   payment: {
     paymentMethods: [
@@ -139,8 +168,8 @@ export const pt: TranslationsType['pt'] = {
 
   },
   hero_section: {
-    book_now: "Reservar Agora",
-    scroll_down: "Rolar para Baixo"
+    book_now: "RESERVAR",
+    scroll_down: "EXPLORAR"
   },
   sidebar: {
     quick_links: "Links Rápidos",
@@ -207,6 +236,11 @@ export const pt: TranslationsType['pt'] = {
   home: {
     welcome: "Bem-vindo ao Hotel D'Itália",
     description: "Sua casa longe de casa em Arroio do Sal",
+    galleryPreview: {
+      title: "Explore Nosso Hotel",
+      description: "Faça um tour visual pelos nossos belos espaços e descubra o que torna o Hotel D'Italia especial.",
+      viewAll: "Ver Galeria Completa",
+    }
   },
   room_comparison: {
     features: [

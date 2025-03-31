@@ -9,7 +9,7 @@ import { it } from './it';
 export type TranslationValue = 
   | string 
   | { [key: string]: TranslationValue }
-  | Array<{ [key: string]: TranslationValue }>;
+  | TranslationValue[];
 
 export interface NestedTranslation {
   [key: string]: TranslationValue;

@@ -3,17 +3,28 @@
 import React from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { PlaceholderImage } from "@/components/ui/placeholder-image"
+import Image from "next/image"
 import { useLanguageContext } from "@/context/LanguageContext"
 import { ArrowRight, Star } from "lucide-react"
 
 export function InformationSection() {
-  const { t, tArray } = useLanguageContext()
+  const { t, tObject } = useLanguageContext()
 
-  // Fetch the information boxes dynamically using the translation function
-  const infoBoxes = tArray("information_section.info_boxes")
+  type InfoBox = {
+    title: string
+    description: string
+    highlights?: string[]
+  }
+
+  const infoBoxes = tObject<InfoBox[]>("information_section.info_boxes")
 
   const inViewRefs = React.useRef<(HTMLElement | null)[]>([])
+
+  const images = [
+    "/images/42_sunset.jpg",
+    "/images/breakfast_fruit.jpg",
+    "/images/42_beachview.jpg"
+  ]
 
   return (
     <section className="py-16 md:py-24 bg-none">
@@ -69,11 +80,13 @@ export function InformationSection() {
               >
                 {/* Image */}
                 <div className="w-full md:w-1/2 relative">
-                  <div className="relative overflow-hidden rounded-xl shadow-xl">
+                  <div className="relative overflow-hidden rounded-xl shadow-xl aspect-[4/3]">
                     <div className="absolute inset-0 bg-blue-900/10 z-10" />
-                    <PlaceholderImage
-                      index={index}
-                      className="md:w-full h-[300px] md:h-[400px] transform transition-transform duration-700 hover:scale-105"
+                    <Image
+                      src={images[index]}
+                      alt={box.title}
+                      fill
+                      className="object-cover transform transition-transform duration-700 hover:scale-105"
                     />
                   </div>
 
@@ -85,17 +98,26 @@ export function InformationSection() {
                 {/* Content */}
                 <div className="w-full md:w-1/2 p-4">
                   <div className="relative">
+                    {/* Yellow animated underline */}
                     <motion.div
                       initial={{ width: 0 }}
                       animate={inView ? { width: "3rem" } : { width: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 }}
                       className="h-1 bg-yellow-400 mb-4"
                     />
-                    <h2 className="text-2xl md:text-3xl font-bold mb-6 text-blue-900">{box.title}</h2>
-                    <p className="text-lg text-blue-700 leading-relaxed mb-8">{box.description}</p>
 
-                    {/* Highlights if available */}
-                    {box.highlights && (
+                    {/* Translated title */}
+                    <h2 className="text-2xl md:text-3xl font-bold mb-6 text-blue-900">
+                      {box.title}
+                    </h2>
+
+                    {/* Translated description */}
+                    <p className="text-lg text-blue-700 leading-relaxed mb-8">
+                      {box.description}
+                    </p>
+
+                    {/* Optional translated highlights */}
+                    {Array.isArray(box.highlights) && box.highlights.length > 0 && (
                       <ul className="space-y-3 mb-8">
                         {box.highlights.map((highlight, i) => (
                           <motion.li
@@ -112,6 +134,7 @@ export function InformationSection() {
                       </ul>
                     )}
 
+                    {/* "Learn More" translated call-to-action */}
                     <motion.button
                       whileHover={{ x: 5 }}
                       className="flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors"

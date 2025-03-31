@@ -60,8 +60,18 @@ export const en: TranslationsType['en'] = {
     }
   },
   gallery: {
-    title: "Our Gallery",
-    description: "Explore our facilities",
+    title: "Gallery",
+    img: "Image",
+    close: "Close",
+    previous: "Previous",
+    next: "Next",
+    categories: {
+      rooms: "Rooms",
+      breakfast: "Breakfast",
+      socialAreas: "Social Areas",
+      views: "Views",
+      nearbyAttractions: "Nearby Attractions",
+    },
   },
   location: {
     title: "Our Location",
@@ -77,9 +87,9 @@ export const en: TranslationsType['en'] = {
     },
     map_section: {
       timeline: {
-        big_picture: "Brazil",
-        normal: "Rio Grande do Sul",
-        zoomed_in: "Litoral Gaúcho",
+        brazil: "Brazil",
+        rs: "Rio Grande do Sul",
+        litoral: "Litoral Gaúcho",
       },
     },
     locations_nearby: [
@@ -98,8 +108,8 @@ export const en: TranslationsType['en'] = {
     ]
   },
   hero_section: {
-    book_now: "Book Now",
-    scroll_down: "Scroll Down"
+    book_now: "BOOK NOW",
+    scroll_down: "EXPLORE"
   },
   sidebar: {
     quick_links: "Quick Links",
@@ -152,5 +162,11 @@ export const en: TranslationsType['en'] = {
   home: {
     welcome: "Welcome to Hotel D'Itália",
     description: "Your home away from home in Arroio do Sal",
+    galleryPreview: {
+      title: "Explore Our Hotel",
+      description: "Take a visual tour through our beautiful spaces and discover what makes Hotel D'Italia special.",
+      viewAll: "View Full Gallery",
+    },
+
   },
 };
