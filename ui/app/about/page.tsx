@@ -5,11 +5,11 @@ import { PlaceholderImage } from '@/components/ui/placeholder-image'
 import { useLanguageContext } from '@/context/LanguageContext';
 
 export default function AboutPage() {
-  const { language, setLanguage, t, tArray} = useLanguageContext();
+  const { t, tArray} = useLanguageContext();
 
   const values = tArray('about.values.valuesList') as unknown as { icon: string; title: string; description: string }[];
   const team = tArray('about.team.members') as unknown as { name: string; role: string }[];
-  const awards = tArray('about.awards.awardsList') as unknown as { year: string; award: string }[];
+  // const awards = tArray('about.awards.awardsList') as unknown as { year: string; award: string }[];
 
   
   return (

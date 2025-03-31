@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { MapPin, Navigation, Car, Compass, ChevronRight, ExternalLink } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { MapPin, Car, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { useLanguageContext } from "@/context/LanguageContext";
 import Image from "next/image";
 import gsap from "gsap";

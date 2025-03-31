@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   description: "Luxury beachfront hotel in Arroio do Sal, Brazil",
 }
 
-export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export default function RootLayout({
