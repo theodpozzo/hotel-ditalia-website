@@ -5,13 +5,15 @@
     "gsap": "^3.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-intersection-observer": "^9.16.0"
+    "react-intersection-observer": "^9.16.0",
+    "sharp": "^0.33.5",
+    "split": "^1.0.1"
   },
   "scripts": {
     "build": "next build",
     "start": "next start",
     "install:ui": "cd ui && npm install",
     "build:ui": "cd ui && npm run build",
-    "start:ui": "cd ui && npm start"
+    "start:ui": "set HTTPS=true && cd ui && npm start"
   }
 }
