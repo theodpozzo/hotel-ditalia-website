@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{},"appUsingSizeAdjust":false,"pagesUsingSizeAdjust":false}';
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/theo/Projects/Hotel_DItalia/hotel-ditalia-website/ui/app/layout":["static/media/accc82dc8525882b-s.p.woff2","static/media/0a75ce67746b7cb9-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';

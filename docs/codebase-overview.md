@@ -37,7 +37,7 @@ The website is designed to provide a seamless, user-friendly experience while ma
 
 This project is built using modern web technologies:
 
-- **Next.js 14**: A React framework for production-grade applications
+- **Next.js 15**: A React framework for production-grade applications
 - **TypeScript**: Adds static typing to JavaScript
 - **Tailwind CSS**: A utility-first CSS framework
 - **Shadcn UI**: A collection of reusable UI components
